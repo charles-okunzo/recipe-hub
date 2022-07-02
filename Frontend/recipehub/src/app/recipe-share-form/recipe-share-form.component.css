@@ -1,0 +1,27 @@
+
+
+.color{
+    color: #D52B32;
+}
+
+textarea{
+    width: 100%;
+}
+
+.button
+{
+    background-color: #D52B32;
+    padding: 1.5vh 2vw;
+    font-size: 2.5vh;
+    font-weight: bold;
+    /* border-style: none; */
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 1.5vh;
+    color: #FDFCFC;
+}
+
+.button{
+    border-style: none;
+    font-size: 100%;
+}
