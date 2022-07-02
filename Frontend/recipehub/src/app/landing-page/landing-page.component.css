@@ -71,3 +71,12 @@
     display: grid;
     place-items: center;
 }
+
+.two{
+    background-image: url(../../assets/images/recipe.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 80vh;
+
+}
