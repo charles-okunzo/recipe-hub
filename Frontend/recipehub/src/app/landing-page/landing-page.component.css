@@ -13,7 +13,7 @@
 }
 
 .button-outline{
-    padding: 1.5vh 2vw;
+    padding: 10px 16px;
     font-size: 2.5vh;
     font-weight: bold;
     color: #D52B32;
@@ -21,7 +21,7 @@
     border: 2px solid #D52B32;
     border-radius: 50px;
     margin-top: 1.5vh;
-    transition: all 500ms ease-in-out
+    transition: all 500ms ease-in-out;
     
 }
 
@@ -29,10 +29,10 @@
 .button
 {
     background-color: #D52B32;
-    padding: 1.5vh 2vh;
+    padding: 10px 15px;
     font-size: 2.5vh;
     font-weight: bold;
-    /* border-style: none; */
+    border-style: none;
     border-radius: 50px;
     cursor: pointer;
     margin-top: 1.5vh;
@@ -68,8 +68,8 @@
 
 .one{
     min-height: 80vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .two{
@@ -79,4 +79,13 @@
     background-position: center;
     min-height: 80vh;
 
+}
+
+@media only screen and (max-width:769px){
+    .two{
+        display: none;
+    }
+    .one{
+        width: 100vw;
+    }
 }
