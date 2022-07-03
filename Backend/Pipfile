@@ -9,6 +9,7 @@ djangorestframework = "*"
 python-decouple = "*"
 psycopg2 = "*"
 django-cors-headers = "*"
+cloudinary = "*"
 
 [dev-packages]
 
