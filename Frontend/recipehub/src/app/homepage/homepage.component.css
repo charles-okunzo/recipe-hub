@@ -1,0 +1,138 @@
+* {
+  text-decoration: none;
+}
+.homepage {
+  background: radial-gradient(ellipse, transparent -60%, rgba(0, 0, 0, 0.8)),
+    url(../../assets/images/banner.jpg) no-repeat;
+  min-height: 90vh;
+  background-position: center;
+}
+.fa {
+  font-size: 1.7rem;
+}
+.name-nav {
+  margin: 0 4%;
+}
+hr {
+  margin-top: 0;
+  border-width: 2px;
+}
+.featured-nav a {
+  color: #fff;
+  margin-left: 1.5rem;
+  font-size: 1.4rem;
+}
+.text h1 {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+.content {
+  display: flex;
+  height: 60vh;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8%;
+  justify-content: center;
+}
+.review {
+  margin-bottom: 3%;
+}
+.text {
+  flex-basis: 40%;
+}
+
+.text p {
+  font-size: 1.5rem;
+}
+
+.inner-circle {
+  width: 3.7rem;
+  height: 3.7rem;
+  background-color: #fa4269;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #fff;
+}
+
+.mydiv {
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+.circle .mydiv {
+  top: 18%;
+  left: 12%;
+}
+
+.mydiv i {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+.bottom-icons .fa-circle {
+  color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.bottom-icons i {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+.box-container {
+  background-color: #f5f5f5;
+}
+.box-container .box i {
+  font-size: 3.5rem;
+}
+
+.featured {
+  background-color: #f5f5f5;
+}
+.user-content {
+  border-bottom: 0.1rem solid #333;
+  border-top: 0.1rem solid #333;
+}
+.popular-recipes .recipe-box .image {
+  position: relative;
+}
+.popular-recipes .recipe-box .image img {
+  height: 25rem;
+}
+.popular-recipes .recipe-box .image .circle {
+  position: absolute;
+  bottom: 5%;
+  right: 4%;
+  color: #fff;
+}
+.popular-recipes .recipe-box .image .circle .inner-circle {
+  background: transparent;
+}
+
+.popular-card-content h4 {
+  padding: 0.5rem 0;
+  font-weight: bold;
+}
+.popular-card-content p {
+  color: #888888;
+}
+.popular-user-name p {
+  color: #888888;
+}
+.popular-content i {
+  font-size: 0.8rem;
+}
+.featured-content {
+  padding: 1rem;
+}
+.featured-content .featured-text h3 {
+  color: #fa4269;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+}
+.featured-content .featured-text .inner-div {
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.featured-content .featured-text .inner-div h2 {
+  flex-basis: 60%;
+  font-weight: bold;
+}
