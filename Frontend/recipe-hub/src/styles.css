@@ -9,3 +9,7 @@
 li{
     list-style: none;
 }
+img{
+    height: 30vh;
+    width: 20vw;
+}
