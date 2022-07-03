@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+.one h3{
+    color: #D52B32;
+}
+.dot{
+    font-size: 50px;
+    color: #D52B32;
+}
+li{
+    list-style: none;
+}
