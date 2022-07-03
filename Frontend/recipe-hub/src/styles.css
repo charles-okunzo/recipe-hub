@@ -13,6 +13,9 @@ img{
     height: 30vh;
     width: 20vw;
 }
-.drive{
+.center{
+    background-color: white;
+}
+body{
     background-color: #9B9A96;
 }
