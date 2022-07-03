@@ -25,6 +25,11 @@ export class RecipeDetailComponent implements OnInit {
     {name:'1 large garlic clove, pressed or minced'},
 
   ];
+  instructions:Recipe[]=[
+    {name:'Make the vinaigrette. Whisk all ingredients together in a small bowl (or shake all ingredients together vigorously in a sealed jar) until completely combined.'},
+    {name:'Toss the salad. Combine half of the chickpeas, lettuce, cucumbers, feta, avocado, red onion, mint and dill in a large mixing bowl. Drizzle evenly with the prepared vinaigrette and gently toss until combined.'},
+    {name:'Serve. Serve immediately, garnished with the remaining crispy chickpeas, and enjoy!'}
+  ]
   constructor() { }
 
   ngOnInit(): void {
