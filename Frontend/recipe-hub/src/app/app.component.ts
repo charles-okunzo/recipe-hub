@@ -23,7 +23,6 @@ export class AppComponent {
   constructor(){
   
   this.vingredients = [
-              '1/3 cup olive oil',
           '2 tablespoons lemon juice',
           '2 teaspoons Dijon mustard',
           '1 teaspoon sea salt',
