@@ -1,37 +1,46 @@
-<div class="container">
-    <div class="row"> 
-        <img src="../../assets/images/st.jpeg" alt="" style="float: left; margin-right: 15px; width: 400px;">
-        <div class="col-md-6">
-            
-                <div class="text-center">
-                    <h1>Login</h1>
-                    <h6>Welcome back! Please login to your account</h6>  
-                </div>
-                <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Username</label>
-                      <input type="text" id="disabledTextInput" class="form-control" placeholder="username@gmail.com">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" id="disabledTextInput" class="form-control" placeholder="***********">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Remember me? </label><span style="float:right">Forgot Password?</span>
-                    </div>
-                    <button type="button" class="btn btn-danger btn-lg">Log in</button>
-                    <br>
-                    <a routerLink="/signup"><h6>New User? <span style="color: #D52B32;;">Click to Sign Up</span></h6></a>
-                  </form>
-                  
-
-
-            </div>
-
-        </div>
-
+<div class="container min-vh-100" style="display: grid; place-items:center;">
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <img src="../../assets/images/st.jpeg" alt="" class="img-fluid" style="height: 100%; width:100%; object-fit:cover;"/>
     </div>
-
-
-
+    <div class="col-md-5">
+      <div class="text-center">
+        <h1>Login</h1>
+        <h6>Welcome back! Please login to your account</h6>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input
+            type="text"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder="username@gmail.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder="***********"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember me? </label
+          ><span style="float: right">Forgot Password?</span>
+        </div>
+        <button type="button" class="btn btn-danger fw-bold">Log in</button>
+        <br />
+        <small class="text-muted">New User?
+          <a routerLink="/signup"
+          style="text-decoration: none;"><span style="color: #d52b32 ;"> Sign Up</span>
+          </a
+        ></small>
+      </form>
+    </div>
+  </div>
+</div>
