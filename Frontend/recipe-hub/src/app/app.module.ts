@@ -7,7 +7,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
     RecipeDetailComponent
   ],
   imports: [
