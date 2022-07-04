@@ -27,3 +27,7 @@ class Recipe(models.Model):
     ratings = models.PositiveIntegerField(null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
     bookmarked = models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return self.recipe_name
