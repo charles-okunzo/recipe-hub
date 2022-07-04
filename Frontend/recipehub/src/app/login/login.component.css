@@ -9,16 +9,23 @@ h6 {
 
 .btn {
     border-radius: 50px;
-    padding: 10px 15px;
+    padding: 10px 35px;
+}
+
+img{
+    height: 100%; 
+    width:100%; 
+    object-fit:cover;
 }
 
 
     
 @media only screen and (max-width:991px)
 {
-    img.login-img{
-        height: 30vh;
-        width: auto;
+    .login-img{
+        height: 30vh !important;
+        width: 100%;
+        margin: 0;
     }
 }
 
