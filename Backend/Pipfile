@@ -10,6 +10,7 @@ python-decouple = "*"
 psycopg2 = "*"
 django-cors-headers = "*"
 cloudinary = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
