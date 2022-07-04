@@ -8,12 +8,17 @@ h6 {
 }
 
 .btn {
-    display: block;
-    width: 30%;
-    border-radius: 20px;
+    border-radius: 50px;
+    padding: 10px 15px;
 }
 
 
     
-
+@media only screen and (max-width:991px)
+{
+    img.login-img{
+        height: 30vh;
+        width: auto;
+    }
+}
 
