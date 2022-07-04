@@ -2,15 +2,15 @@ from django.shortcuts import render
 from rest_framework import viewsets, routers
 from django.contrib.auth.models import User
 from recipe_api.models import Recipe
-from Backend.recipe_api.serializers import RecipeSerializer, UserSerializer
+from recipe_api.serializers import RecipeSerializer, UserSerializer
 
 # Create your views here.
 
 class UserViewset(viewsets.ModelViewSet):
-    queryset = User
+    queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class RecipeViewset(viewsets.ModelViewSet):
-    queryset = Recipe
+    queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
