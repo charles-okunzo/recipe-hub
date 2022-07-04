@@ -8,14 +8,21 @@ h6 {
 }
 
 .btn {
-    display: block;
-    width: 30%;
-    border-radius: 20px;
+    border-radius: 50px;
+    padding: 10px 35px;
 }
-.container{
-    margin: auto;
-    width: 60%;
-    padding: 100px;
-    position: center;
-    
+
+img{
+    height: 100%; 
+    width:100%; 
+    object-fit:cover;
+}
+
+@media only screen and (max-width:991px)
+{
+    .login-img{
+        height: 30vh !important;
+        width: 100%;
+        margin: 0;
+    }
 }
