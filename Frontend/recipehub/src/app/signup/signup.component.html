@@ -1,1 +1,43 @@
-<p>signup works!</p>
+<div class="container">
+    <div class="row"> 
+        <img src="../../assets/images/my.jpeg" alt="" style="float: left; margin-right: 15px; width: 400px;">
+        <div class="col-md-6">
+            
+                <div class="text-center">
+                    <h1>Sign Up</h1> 
+                </div>
+                <form>
+                    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Username</label>
+                      <input formControlName='Username'type="text" id="disabledTextInput" class="form-control" placeholder="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input formControlName='Email'type="text" id="disabledTextInput" class="form-control" placeholder="myemail@gmail.com">
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input formControlName='Password'type="password" id="disabledTextInput" class="form-control" placeholder="***********">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password Confirmation</label>
+                        <input formControlName='Confirmation'type="password" id="disabledTextInput" class="form-control" placeholder="***********">
+                      </div>
+                    
+                    <button type="button" class="btn btn-danger btn-lg">Sign Up</button>
+               </form>
+            </form>
+               <br>
+               <a routerLink="/login"><h6> New User? <span style="color: #D52B32;;"> Click to Sign Up</span></h6></a> 
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
