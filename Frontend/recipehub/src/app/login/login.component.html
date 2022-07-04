@@ -1,0 +1,46 @@
+<div class="container min-vh-100" style="display: grid; place-items:center;">
+  <div class="row justify-content-center py-4">
+    <div class="col-lg-3 login-img">
+      <img src="../../assets/images/st.jpeg" alt="Login img" class="img-fluid"/>
+    </div>
+    <div class="col-lg-5">
+      <div class="text-center mb-4">
+        <h1>Log In</h1>
+        <h6>Welcome back! Please login to your account</h6>
+      </div>
+      <form >
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input
+            type="text"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder="username@gmail.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder="********"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember me? </label
+          ><span style="float: right">Forgot Password?</span>
+        </div>
+        <button type="button" class="btn btn-danger fw-bold mb-3">Log In</button>
+        <br />
+        <small class="text-muted">New User?
+          <a routerLink="/signup"
+          style="text-decoration: none;"><span style="color: #d52b32;"> Sign Up</span>
+          </a
+        ></small>
+      </form>
+    </div>
+  </div>
+</div>
