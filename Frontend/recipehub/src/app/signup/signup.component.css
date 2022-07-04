@@ -15,5 +15,7 @@ h6 {
 .container{
     margin: auto;
     width: 60%;
-    padding: 20px;
+    padding: 100px;
+    position: center;
+    
 }
