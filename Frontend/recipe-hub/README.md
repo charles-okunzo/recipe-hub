@@ -1,6 +1,6 @@
 # Recipehub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.4.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.4.4.
 
 ## Development server
 
