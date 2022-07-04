@@ -18,6 +18,10 @@ img{
     object-fit:cover;
 }
 
+.btn-danger{
+    background-color: #D52B32;
+}
+
 
     
 @media only screen and (max-width:991px)
