@@ -3,12 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "recipe-hub": {
+    "recipehub": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
+      "schematics": {}
       },
       "root": "",
       "sourceRoot": "src",
@@ -68,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "recipe-hub:build:production"
+              "browserTarget": "recipehub:build:production"
             },
             "development": {
-              "browserTarget": "recipe-hub:build:development"
+              "browserTarget": "recipehub:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "recipe-hub:build"
+            "browserTarget": "recipehub:build"
           }
         },
         "test": {
@@ -102,5 +99,5 @@
       }
     }
   },
-  "defaultProject": "recipe-hub"
+  "defaultProject": "recipehub"
 }
