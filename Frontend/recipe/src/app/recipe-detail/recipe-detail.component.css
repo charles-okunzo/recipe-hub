@@ -15,8 +15,8 @@ li{
 .center{
     background-color: white;
 }
-body{
-    background-color: #9B9A96;
+.container-fluid{
+    background-color: #ECEDF3;
 }
 .fa-star{
     font-size: 20px;

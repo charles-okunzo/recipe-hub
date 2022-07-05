@@ -29,35 +29,35 @@
                         <hr />
                         <div class="two">
                             <div class="container">
-                            <div class="row">
-                                <h3>DESCRIPTION</h3>
-                                <p>This simple green salad is loaded up with zesty roasted chickpeas, cucumber,
-                                    avocado, feta cheese, fresh herbs, and a tangy lemon vinaigrette.</p>
+                                <div class="row">
+                                    <h3>DESCRIPTION</h3>
+                                    <p>This simple green salad is loaded up with zesty roasted chickpeas, cucumber,
+                                        avocado, feta cheese, fresh herbs, and a tangy lemon vinaigrette.</p>
+                                </div>
                             </div>
-                        </div>
                         </div>
                         <hr />
                         <div class="three">
                             <div class="container">
-                            <h3>INGREDIENTS</h3>
-                            <ul>
-                                <li *ngFor="let ingredient of ingredients">
-                                    <p><span class="dot">.</span>{{ingredient.name}}</p>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="four">
-                            <div class="container">
-                            <div class="row">
-                                <h3>INSTRUCTIONS</h3>
+                                <h3>INGREDIENTS</h3>
                                 <ul>
-                                    <li *ngFor="let instruction of instructions">
-                                        <p><span class="dot">.</span>{{instruction.name}}</p>
+                                    <li *ngFor="let ingredient of ingredients">
+                                        <p><span class="dot">.</span>{{ingredient.name}}</p>
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                        <hr />
+                        <div class="four">
+                            <div class="container">
+                                <div class="row">
+                                    <h3>INSTRUCTIONS</h3>
+                                    <ul>
+                                        <li *ngFor="let instruction of instructions">
+                                            <p><span class="dot">.</span>{{instruction.name}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,5 +67,3 @@
         <div class="col-md-3"></div>
     </div>
 </div>
-
-                       
