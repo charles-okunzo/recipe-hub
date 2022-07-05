@@ -10,10 +10,9 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'profile',component:ProfileComponent},
-  {path:'id',component:ProfileComponent}
+  {path:'id',component:ProfileComponent},
   // {path:'',redirectTo:'',pathMatch:'full'}
 ];
-
 
 
 @NgModule({
