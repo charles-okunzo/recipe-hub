@@ -36,12 +36,12 @@ class Recipe(models.Model):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     profile_img = CloudinaryField('profile_imgs', default = 'https://res.cloudinary.com/dvhid4k2j/image/upload/v1654654901/png_rxb8cy.jpg')
     bio = models.TextField(blank=True, null=True)
     city = models.CharField(max_length=100, blank=True)
     country = models.CharField(max_length=100, blank=True)
-    mobile_no = models.PositiveIntegerField(blank=True)
+    mobile_no = models.PositiveIntegerField(null=True, blank=True)
 
 
 
