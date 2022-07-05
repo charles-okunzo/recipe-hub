@@ -1,0 +1,25 @@
+.one h2{
+    color: #D52B32;
+}
+.dot{
+    font-size: 50px;
+    color: #D52B32;
+}
+li{
+    list-style: none;
+}
+ img{
+    height: 30vh;
+    width: 20vw;
+}
+.center{
+    background-color: white;
+}
+body{
+    background-color: #9B9A96;
+}
+.fa-star{
+    font-size: 20px;
+    color: #D52B32;
+}
+
