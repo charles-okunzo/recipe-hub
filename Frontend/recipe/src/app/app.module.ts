@@ -6,6 +6,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -15,6 +22,13 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     LoginComponent,
     SignupComponent,
+    FooterComponent,
+    HomepageComponent,
+    NavbarComponent,
+    LandingPageComponent,
+    RecipeShareFormComponent,
+    RecipeDetailComponent,
+    ProfileComponent,
    
   ],
   imports: [
