@@ -10,35 +10,25 @@
 .fa {
   font-size: 1.7rem;
 }
-.name-nav {
-  margin: 0 4%;
-}
-hr {
-  margin-top: 0;
-  border-width: 2px;
-}
-.featured-nav a {
-  color: #fff;
-  margin-left: 1.5rem;
-  font-size: 1.4rem;
-}
+
 .text h1 {
   font-size: 4rem;
   font-weight: bolder;
 }
 .content {
+  height: 70vh;
+}
+/* .content {
   display: flex;
   height: 60vh;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 8%;
   justify-content: center;
-}
-.review {
-  margin-bottom: 3%;
-}
+} */
+
 .text {
-  flex-basis: 40%;
+  flex-basis: 50%;
 }
 
 .text p {
@@ -95,7 +85,7 @@ hr {
   position: relative;
 }
 .popular-recipes .recipe-box .image img {
-  height: 25rem;
+  height: 22rem;
 }
 .popular-recipes .recipe-box .image .circle {
   position: absolute;
@@ -135,4 +125,10 @@ hr {
 .featured-content .featured-text .inner-div h2 {
   flex-basis: 60%;
   font-weight: bold;
+}
+@media (max-width: 948px) {
+  .text h1 {
+    font-size: 3rem;
+    font-weight: bolder;
+  }
 }

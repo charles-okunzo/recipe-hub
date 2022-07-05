@@ -1,26 +1,9 @@
 <section>
+  <app-navbar></app-navbar>
   <div class="homepage container-fluid text-white p-0">
     <div
-      class="name-nav d-flex justify-content-between flex-wrap align-items-center pt-2"
+      class="container-fluid justify-content-evenly d-flex align-items-end content"
     >
-      <div class="icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="name">
-        <h2>Recipe Hub</h2>
-      </div>
-      <div class="hamberger">
-        <i class="fa fa-bars"></i>
-      </div>
-    </div>
-    <hr />
-    <div class="featured-nav d-flex justify-content-center mt-0 flex-wrap">
-      <a href="">Home</a>
-      <a href="">Featured Recipes</a>
-      <a href="">About</a>
-      <a href="">Contact Us</a>
-    </div>
-    <div class="container-fluid content">
       <div class="text">
         <h1>Nasi Goreng Sayur</h1>
         <p>
@@ -28,7 +11,7 @@
           omnis ratione cumque commodi maxime soluta dolorum. Esse, quasi quae.
         </p>
       </div>
-      <div class="review">
+      <div class="review mb-4">
         <div class="rating">
           <div style="margin-left: 0.5rem" class="circle">
             <div class="inner-circle">
@@ -50,22 +33,30 @@
     </div>
   </div>
   <div class="container-fluid shadow-sm">
-    <div class="box-container container p-4">
+    <div class="box-container container">
       <div class="row">
-        <div class="box col-md-3 text-center">
-          <i class="fa fa-ice-cream"></i>
+        <div
+          class="box col-lg-3 col-md-3 text-center border-end border-start border-dark"
+        >
+          <i class="fa fa-ice-cream p-3 col-sm-12"></i>
           <p>Main dishes</p>
         </div>
-        <div class="box col-md-3 text-center">
-          <i class="fa fa-ice-cream"></i>
+        <div
+          class="box col-lg-3 col-md-3 col-sm-12 text-center border-end border-dark"
+        >
+          <i class="fa fa-ice-cream p-3"></i>
           <p>Soup</p>
         </div>
-        <div class="box col-md-3 text-center">
-          <i class="fa fa-ice-cream"></i>
+        <div
+          class="box col-lg-3 col-md-3 col-sm-12 text-center border-end border-dark"
+        >
+          <i class="fa fa-ice-cream p-3"></i>
           <p>Beverages</p>
         </div>
-        <div class="box col-md-3 text-center">
-          <i class="fa fa-ice-cream"></i>
+        <div
+          class="box col-lg-3 col-md-3 col-sm-12 text-center border-end border-dark"
+        >
+          <i class="fa fa-ice-cream p-3"></i>
           <p>Desserts</p>
         </div>
       </div>
@@ -191,7 +182,7 @@
       </p>
     </div>
     <div class="row popular-recipes mb-3">
-      <div class="col-md-4 recipe-box mb-3">
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -227,7 +218,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 recipe-box mb-3">
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -263,7 +254,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 recipe-box mb-3">
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -299,7 +290,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 recipe-box mb-3">
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -335,7 +326,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 recipe-box mb-3">
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -371,7 +362,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 recipe-box mb-3">
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -409,70 +400,5 @@
       </div>
     </div>
   </section>
-  <section class="footer">
-    <footer class="bg-dark text-center text-white">
-      <!-- Grid container -->
-      <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-          <!-- Facebook -->
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-
-          <!-- Twitter -->
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-twitter"></i
-          ></a>
-
-          <!-- Google -->
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-google"></i
-          ></a>
-
-          <!-- Instagram -->
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-instagram"></i
-          ></a>
-
-          <!-- Linkedin -->
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-
-          <!-- Github -->
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-github"></i
-          ></a>
-        </section>
-        <!-- Section: Social media -->
-      </div>
-      <!-- Grid container -->
-
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2022 Copyright:
-        <a class="text-white" href="">Recipe Hub</a>
-      </div>
-      <!-- Copyright -->
-    </footer>
-  </section>
+  <app-footer></app-footer>
 </section>
