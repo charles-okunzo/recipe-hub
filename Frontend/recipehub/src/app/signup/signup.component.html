@@ -1,49 +1,76 @@
-<div class="container min-vh-100" style="display: grid; place-items:center;">
-    <div class="row justify-content-center py-4"> 
-        <div class="col-lg-3 login-img">
-          <img src="../../assets/images/my.jpeg" alt="Sign up image" class="img-fluid">
-        </div>
-        <div class="col-lg-6">
-            
-          <div class="text-center mb-4">
-            <h1>Sign Up</h1>
-            <h6 class="text-muted">Hello! Register to share your cooking experience...</h6>
-          </div>
-                <form>
-                    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Username</label>
-                      <input formControlName='Username'type="text" id="disabledTextInput" class="form-control" placeholder="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input formControlName='Email'type="text" id="disabledTextInput" class="form-control" placeholder="myemail@gmail.com">
-                      </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input formControlName='Password'type="password" id="disabledTextInput" class="form-control" placeholder="***********">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password Confirmation</label>
-                        <input formControlName='Confirmation'type="password" id="disabledTextInput" class="form-control" placeholder="***********">
-                      </div>
-                    
-                    <button type="button" class="btn btn-danger fw-bold">Sign Up</button>
-               </form>
-            </form>
-               <br>
-               <small class="text-muted">Already have an account?
-                <a routerLink="/login"
-                style="text-decoration: none;"><span style="color: #d52b32 ;"> Log In Now</span>
-                </a
-              ></small>
-
-            </div>
-
-        </div>
-
+<div class="container min-vh-100" style="display: grid; place-items: center">
+  <div class="row justify-content-center py-4">
+    <div class="col-lg-3 login-img">
+      <img
+        src="../../assets/images/my.jpeg"
+        alt="Sign up image"
+        class="img-fluid"
+      />
     </div>
+    <div class="col-lg-6">
+      <div class="text-center mb-4">
+        <h1>Sign Up</h1>
+        <h6 class="text-muted">
+          Hello! Register to share your cooking experience...
+        </h6>
+      </div>
+      <form>
+        <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input
+              formControlName="Username"
+              type="text"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="username"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              formControlName="Email"
+              type="text"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="myemail@gmail.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              formControlName="Password"
+              type="password"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="***********"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password Confirmation</label
+            >
+            <input
+              formControlName="Confirmation"
+              type="password"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="***********"
+            />
+          </div>
 
-
-
-
+          <button type="button" class="btn btn-danger fw-bold">Sign Up</button>
+        </form>
+      </form>
+      <br />
+      <small class="text-muted"
+        >Already have an account?
+        <a routerLink="/login" style="text-decoration: none"
+          ><span style="color: #d52b32"> Log In Now</span>
+        </a></small
+      >
+    </div>
+  </div>
+</div>
