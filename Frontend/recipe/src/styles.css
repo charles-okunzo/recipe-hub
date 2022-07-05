@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD:Frontend/recipe/src/styles.css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+=======
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300,400,500,600,700&display=swap');
+>>>>>>> development:Frontend/recipehub/src/styles.css
 
 *{
     font-family: 'Poppins', sans-serif;
