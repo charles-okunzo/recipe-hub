@@ -3,12 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeDetailComponent
+    LandingPageComponent,
+    RecipeShareFormComponent,
+    HomepageComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
