@@ -10,6 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedService } from './shared.service';
 import {HttpClientModule} from '@angular/common/http';
+import { HomepageComponent } from './homepage/homepage.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
+    HomepageComponent,
+    FooterComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from decouple import config
 import cloudinary, cloudinary.api, cloudinary.uploader
+<<<<<<< HEAD
 from datetime import timedelta
 
+=======
+>>>>>>> boni
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,7 +48,10 @@ INSTALLED_APPS = [
     'recipe_api',
     'rest_framework',
     "corsheaders",
+<<<<<<< HEAD
     'rest_framework_simplejwt.token_blacklist',
+=======
+>>>>>>> boni
 ]
 
 MIDDLEWARE = [
