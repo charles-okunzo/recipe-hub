@@ -5,12 +5,16 @@
     font-size: 50px;
     color: #D52B32;
 }
+.dot1{
+    font-size: 20px;
+    color: #D52B32;
+}
 li{
     list-style: none;
 }
- img{
+img{
     height: 30vh;
-    width: 20vw;
+    width: 50vw;
 }
 .center{
     background-color: white;
