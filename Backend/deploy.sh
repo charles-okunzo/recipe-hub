@@ -26,6 +26,8 @@ git commit -m "heroku deployment"
 git push heroku main
 
 
+heroku git:remote -a rec1pe-api
+
 
 # heroku run python manage.py makemigrations
 # heroku run python manage.py migrate
