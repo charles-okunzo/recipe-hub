@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
   
   public signupForm !:FormGroup;
   constructor(private formBuilder : FormBuilder, private http : HttpClient ,private router:Router) { }
-
+// register;
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
       Username:[''],
@@ -21,19 +21,30 @@ export class SignupComponent implements OnInit {
       Confirmation:[''],
     })
 
+  // }
+  // signUp(){
+  //   this.http.post<any>('http://localhost:3000/signupUsers',this.signupForm.value)
+  //   .subscribe(res =>{
+  //     alert('Signup Successful');
+  //     this.signupForm.reset();
+  //     this.router.navigate(['login']);
+  //   })
+
+
+    // this.register  = {
+    //   username : '',
+    //   email: '',
+    //   password : '' 
+    // }
+
+
+    }
+
+
+    registerUser(){
+      console.log(this.signupForm.value)
+    }
+
+
   }
-  signUp(){
-    this.http.post<any>('http://localhost:3000/signupUsers',this.signupForm.value)
-    .subscribe(res =>{
-      alert('Signup Successful');
-      this.signupForm.reset();
-      this.router.navigate(['login']);
-    })
-    }
-    
-
-    }
-
-
-
 

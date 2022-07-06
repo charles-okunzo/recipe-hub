@@ -9,28 +9,28 @@
             <h1>Sign Up</h1>
             <h6 class="text-muted">Hello! Register to share your cooking experience...</h6>
           </div>
-                <form>
-                    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+               
+                <form [formGroup]="signupForm" (ngSubmit)="registerUser()">
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Username</label>
-                      <input formControlName='Username'type="text" id="disabledTextInput" class="form-control" placeholder="username">
+                      <label for="username" class="form-label">Username</label>
+                      <input formControlName='Username'type="text" id="username" class="form-control" placeholder="Username">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input formControlName='Email'type="text" id="disabledTextInput" class="form-control" placeholder="myemail@gmail.com">
+                        <label for="email" class="form-label">Email</label>
+                        <input formControlName='Email'type="text" id="email" class="form-control" placeholder="myemail@gmail.com">
                       </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input formControlName='Password'type="password" id="disabledTextInput" class="form-control" placeholder="***********">
+                      <label for="password" class="form-label">Password</label>
+                      <input formControlName='Password'type="password" id="password" class="form-control" placeholder="*********">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password Confirmation</label>
-                        <input formControlName='Confirmation'type="password" id="disabledTextInput" class="form-control" placeholder="***********">
+                        <label for="passwordconfirm" class="form-label">Password Confirmation</label>
+                        <input formControlName='Confirmation'type="password" id="passwordconfirm" class="form-control" placeholder="*********">
                       </div>
                     
-                    <button type="button" class="btn btn-danger fw-bold">Sign Up</button>
+                    <button type="submit" class="btn btn-danger fw-bold">Sign Up</button>
                </form>
-            </form>
+            
                <br>
                <small class="text-muted">Already have an account?
                 <a routerLink="/login"
