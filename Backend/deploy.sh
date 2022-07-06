@@ -31,6 +31,7 @@ git push heroku main
 
 
 heroku git:remote -a rec1pe-api
+heroku buildpacks:set heroku/python
 
 
 # heroku run python manage.py makemigrations
