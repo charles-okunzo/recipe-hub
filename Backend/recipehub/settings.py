@@ -12,12 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
-import cloudinary, cloudinary.api, cloudinary.uploader
-<<<<<<< HEAD
+import cloudinary, cloudinary.api, cloudinary.uploader, django_heroku, dj_database_url
 from datetime import timedelta
 
-=======
->>>>>>> boni
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,17 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recipe',
     'recipe_api',
     'rest_framework',
     "corsheaders",
-<<<<<<< HEAD
+    'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-=======
->>>>>>> boni
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
@@ -63,7 +58,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 ROOT_URLCONF = 'recipehub.urls'
 
@@ -190,3 +189,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200'
 ]
+
+django_heroku.settings(locals())

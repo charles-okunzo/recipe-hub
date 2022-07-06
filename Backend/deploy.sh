@@ -25,6 +25,10 @@ git add .
 git commit -m "heroku deployment"
 git push heroku main
 
+# pipenv install gunicorn
+# pipenv install whitenoise
+# pipenv install django-heroku
+
 
 
 # heroku run python manage.py makemigrations
