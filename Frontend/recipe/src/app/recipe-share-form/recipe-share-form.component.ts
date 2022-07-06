@@ -12,17 +12,17 @@ export class RecipeShareFormComponent implements OnInit {
 
 
   recipeShareForm = new FormGroup({
-    recipe_name : new FormControl(),
-    dish_type : new FormControl(),
-    prep_time_mins : new FormControl(),
-    no_of_servings : new FormControl(),
-    cooking_time_mins : new FormControl(),
-    image : new FormControl(),
-    ingredients : new FormControl(),
-    instructions: new FormControl(),
-    date_created : new FormControl(),
-    posted_by : new FormControl(),
-    country : new FormControl()
+    recipe_name : new FormControl(''),
+    dish_type : new FormControl(''),
+    prep_time_mins : new FormControl(''),
+    no_of_servings : new FormControl(''),
+    cooking_time_mins : new FormControl(''),
+    image : new FormControl(''),
+    ingredients : new FormControl(''),
+    instructions: new FormControl(''),
+    // date_created : new FormControl(''),
+    // posted_by : new FormControl(''),
+    country : new FormControl('')
 
   })
 
