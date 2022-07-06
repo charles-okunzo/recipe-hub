@@ -26,6 +26,10 @@ export class RecipeShareFormComponent implements OnInit {
 
   })
 
+  getRecipeData(){
+    console.log(this.recipeShareForm.value)
+  }
+
   ngOnInit(): void {
   }
 

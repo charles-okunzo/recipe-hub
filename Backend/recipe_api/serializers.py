@@ -27,6 +27,16 @@ class UserSerializer(serializers.ModelSerializer):
             user.set_password(validated_data['password'])
             user.save()
             return user
+        
+        # def create(self, validated_data):
+        #     """ This function overwrites the default user creation function"""
+        #     password = validated_data.pop('password', None)
+        #     instance = self.Meta.model(**validated_data)
+        #     if password is not None:
+        #         """ The set_password method is a django auth method for hashing passwords """
+        #         instance.set_password(password)
+        #     instance.save()
+        #     return instance
 
 class RecipeSerializer(serializers.HyperlinkedModelSerializer):
     posted_by = UserSerializer()

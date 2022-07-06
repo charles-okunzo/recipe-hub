@@ -5,7 +5,7 @@
                 <h2 class="text-center color py-4 fw-bold font-monospace">Share a Recipe </h2> <hr>
 
                 <!-- form start -->
-                <form [formGroup]="recipeShareForm" enctype="multipart/form-data">
+                <form [formGroup]="recipeShareForm" (ngSubmit)="getRecipeData()">
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
                             <label for="name" class="col-form-label">Recipe Name</label>
@@ -22,20 +22,20 @@
                         <div class="col-md-8">
                             <select class="form-select" id="dish" aria-label="Default select example" formControlName="dish_type">
                                 <option selected>Select dish type</option>
-                                <option value="1">Main Dish</option>
-                                <option value="2">Side Dish</option>
-                                <option value="3">Appetizer</option>
-                                <option value="3">Soup</option>
-                                <option value="3">Salad</option>
-                                <option value="3">Dessert</option>
-                                <option value="3">Drink</option>
+                                <option value="Main Dish">Main Dish</option>
+                                <option value="Side Dish">Side Dish</option>
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Soup">Soup</option>
+                                <option value="Salad">Salad</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="Drink">Drink</option>
                               </select>
                         </div>
                     </div>
 
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
-                            <label for="prep-time" class="col-form-label">Preparation Time</label>
+                            <label for="prep-time" class="col-form-label">Preparation Time (Mins)</label>
                         </div>
                         <div class="col-md-8">
                             <input type="number" id="prep-time" class="form-control" placeholder="e.g. 20 mins" formControlName="prep_time_mins">
@@ -53,7 +53,7 @@
 
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
-                            <label for="prep-time" class="col-form-label">Cooking Time</label>
+                            <label for="prep-time" class="col-form-label">Cooking Time (Mins)</label>
                         </div>
                         <div class="col-md-8">
                             <input type="number" id="prep-time" class="form-control" placeholder="e.g. 40 mins" formControlName="cooking_time_mins">
@@ -62,7 +62,7 @@
 
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
-                            <label for="country" class="col-form-label">Cooking Time</label>
+                            <label for="country" class="col-form-label">Country</label>
                         </div>
                         <div class="col-md-8">
                             <input type="text" id="country" class="form-control" placeholder="e.g. Kenya" formControlName="country">
