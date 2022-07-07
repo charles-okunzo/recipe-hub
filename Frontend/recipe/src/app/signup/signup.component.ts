@@ -27,22 +27,6 @@ export class SignupComponent implements OnInit {
 
     this.username = new FormControl('')
 
-  // }
-  // signUp(){
-  //   this.http.post<any>('http://localhost:3000/signupUsers',this.signupForm.value)
-  //   .subscribe(res =>{
-  //     alert('Signup Successful');
-  //     this.signupForm.reset();
-  //     this.router.navigate(['login']);
-  //   })
-
-
-    // this.register  = {
-    //   username : '',
-    //   email: '',
-    //   password : '' 
-    // }
-
 
     }
     error:any
@@ -51,6 +35,8 @@ export class SignupComponent implements OnInit {
       this.userService.registerUser(this.signupForm.value).subscribe(
         resp => {
           alert(`User has been created successfuly!`)
+          this.signupForm.reset();
+          this.router.navigate(['/','login']);
         },
         err =>{
           console.log('error', err)

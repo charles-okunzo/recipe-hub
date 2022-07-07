@@ -18,9 +18,9 @@
                     <div class="alert alert-danger" *ngIf="error">
                       <p>{{ error.username }}</p>
                     </div>
-                    <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
+                    <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
                       <p>This field is a required field</p>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input formControlName='email'type="text" id="email" class="form-control" placeholder="myemail@gmail.com" required>
@@ -28,10 +28,10 @@
                       <div class="alert alert-danger" *ngIf="error">
                         <p>{{ error.email }}</p>
                       </div>
-                      <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
+                      <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
 
                         <p>This field is a required field</p>
-                      </div>
+                      </div> -->
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
                       <input formControlName='password' type="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
                       <p>Password must not be less that 8 characters</p>
-                      <p>This field is a required field</p>
+                      <!-- <p>This field is a required field</p> -->
                     </div>
                     <!-- <div class="mb-3">
                         <label for="passwordconfirm" class="form-label">Password Confirmation</label>
