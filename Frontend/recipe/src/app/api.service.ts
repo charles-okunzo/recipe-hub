@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) {
-    
-   }
+  constructor(private httpClient: HttpClient) {}
    public getRecipe(){
-    return this.httpClient.get(‘https://restcountries.eu/rest/v2/all’);
+    return this.httpClient.get('http://127.0.0.1:8000/api/recipes/');
   }
 }
+
+

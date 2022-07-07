@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe';
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-recipe-detail',
@@ -7,6 +9,8 @@ import { Recipe } from '../recipe';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
+  recipeDetail;
+  
   ingredients:Recipe[]=[
     {name:'1 batch roasted chickpeas'},
     {name:'10 ounces Romaine or little gem lettuce, chopped into bite-sized pieces'},
@@ -24,15 +28,20 @@ export class RecipeDetailComponent implements OnInit {
     {name:'1 large garlic clove, pressed or minced'},
 
   ];
+
   instructions:Recipe[]=[
     {name:'Make the vinaigrette. Whisk all ingredients together in a small bowl (or shake all ingredients together vigorously in a sealed jar) until completely combined.'},
     {name:'Toss the salad. Combine half of the chickpeas, lettuce, cucumbers, feta, avocado, red onion, mint and dill in a large mixing bowl. Drizzle evenly with the prepared vinaigrette and gently toss until combined.'},
     {name:'Serve. Serve immediately, garnished with the remaining crispy chickpeas, and enjoy!'}
   ]
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getRecipe().subscribe((data)=>{
+      console.log(data);
+      this. = data;
+    });
   }
 
 }
