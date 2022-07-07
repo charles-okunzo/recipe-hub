@@ -11,7 +11,7 @@ export class UserService {
 
   BASEURL='https://rec1pe-api.herokuapp.com/api/users/'
 
-  registerUser(userData): Observable<any> {
+  registerUser(userData:any): Observable<any> {
     return this.http.post(this.BASEURL, userData);
   }
 }
