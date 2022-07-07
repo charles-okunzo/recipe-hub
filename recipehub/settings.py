@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,9 @@ MIDDLEWARE = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
 
 
 ROOT_URLCONF = 'recipehub.urls'
@@ -126,7 +130,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    # --> Global permission classes
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ]
     
 }
 
