@@ -19,4 +19,9 @@ export class UserService {
   loginUser(userData:any): Observable<any>{
     return this.http.post(this.LOGINBASEURL, userData);
   }
+
+  userLogin(){
+    
+  }
+
 }

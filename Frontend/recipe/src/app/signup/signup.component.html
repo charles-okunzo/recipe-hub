@@ -15,8 +15,8 @@
                       <label for="username" class="form-label">Username</label>
                       <input formControlName='username'type="text" id="username" class="form-control" placeholder="Username" required>
                     </div>
-                    <div class="alert alert-danger" *ngIf="error">
-                      <p>{{ error.username }}</p>
+                    <div class="alert alert-danger" *ngIf="error_username">
+                      <p>{{ error_username }}</p>
                     </div>
                     <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
                       <p>This field is a required field</p>
@@ -25,8 +25,8 @@
                         <label for="email" class="form-label">Email</label>
                         <input formControlName='email'type="text" id="email" class="form-control" placeholder="myemail@gmail.com" required>
                       </div>
-                      <div class="alert alert-danger" *ngIf="error">
-                        <p>{{ error.email }}</p>
+                      <div class="alert alert-danger" *ngIf="error_email">
+                        <p>{{ error_email }}</p>
                       </div>
                       <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
 
@@ -34,10 +34,10 @@
                       </div> -->
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
-                      <input formControlName='password' type="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
+                      <input formControlName='password' type="password" name="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
                     </div>
-                    <div class="alert alert-danger" *ngIf="error">
-                      <p>{{ error.password }}</p>
+                    <div class="alert alert-danger" *ngIf="error_password">
+                      <p>{{ error_password }}</p>
                     </div>
                     <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
                       <p>Password must not be less that 8 characters</p>

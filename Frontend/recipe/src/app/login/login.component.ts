@@ -27,16 +27,17 @@ export class LoginComponent implements OnInit {
     console.table(this.loginForm.value)
     this.userService.loginUser(this.loginForm.value).subscribe(
       resp =>{
-        alert('User logged in successfully!')
-        console.table(resp)
+
         this.router.navigate(['/', 'home'])
+        alert('User logged in successfully!')
+        console.log(resp)
 
       },
       err =>{
         this.error_username = err['error'].username
         this.error_password = err['error'].password
         this.invalid = err['error'].non_field_errors
-        console.table('error', err)
+        console.log('error', err)
 
       }
     )

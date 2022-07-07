@@ -29,7 +29,11 @@ export class SignupComponent implements OnInit {
 
 
     }
-    error:any
+    error_username:any
+    error_email:any
+    error_password:any
+
+   
 
     registerUser(){
       this.userService.registerUser(this.signupForm.value).subscribe(
@@ -39,8 +43,10 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/','login']);
         },
         err =>{
-          console.log('error', err)
-          this.error = err['error']
+          this.error_username = err['error'].username
+          this.error_email = err['error'].email
+          this.error_password = err['error'].password
+          console.table('error', err)
         }
       )
       console.log(this.signupForm.value)
