@@ -23,11 +23,12 @@ export class LoginComponent implements OnInit {
   error_username:any
   error_password:any
   invalid:any
+  
+  //method called when the user submits the login button
   logInUser(){
-    console.table(this.loginForm.value)
     this.userService.loginUser(this.loginForm.value).subscribe(
       resp =>{
-
+        console.log(resp)
         this.router.navigate(['/', 'home'])
         alert('User logged in successfully!')
         console.log(resp)
@@ -41,6 +42,8 @@ export class LoginComponent implements OnInit {
 
       }
     )
+    this.userService.userLogin(this.loginForm.value);
+    
   }
 
 
