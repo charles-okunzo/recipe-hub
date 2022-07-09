@@ -6,21 +6,21 @@
             <div class="center mt-5">
                 <div class="row">
                     <div class="container">
-                        <h3 class="text-center">SALAD</h3>
+                        <h3 class="text-center">{{recipe.dish_type|uppercase}}</h3>
                         <div class="one mt-3">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="../assets/chickpea.jpg" class="img-fluid" alt="">
+                                        <img src="{{recipe.image.url}}" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-8">
-                                    <h2>ROSTED CHICKPEA SALAD</h2>
+                                    <h2>{{recipe.recipe_name|uppercase}}</h2>
                                     <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>
                                     <br/>
-                                    <p>Author : Juan</p>
-                                    <p>Prep time : 5 mins</p>
-                                    <p>Cook time : 40 mins</p>
-                                    <p>Serves : 4 - 6</p>
+                                    <p>Author : {{recipe.posted_by.username|titlecase}}</p>
+                                    <p>Prep time : {{recipe.prep_time_mins}} mins</p>
+                                    <p>Cook time : {{recipe.cooking_time_mins}} mins</p>
+                                    <p>Serves : {{recipe.no_of_servings}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +43,8 @@
                             <div class="container">
                             <h3>INGREDIENTS</h3>
                             <ul>
-                                <li *ngFor="let ingredient of ingredients">
-                                    <p><span class="dot">. </span>{{ingredient.name}}</p>
+                                <li>
+                                    <p><span class="dot">. </span>{{recipe.ingredients}}</p>
                                 </li>
                             </ul>
                             </div>
@@ -55,8 +55,8 @@
                             <div class="container">
                                 <h3>INSTRUCTIONS</h3>
                                 <ul>
-                                    <li *ngFor="let instruction of instructions">
-                                        <p> <span class="dot">. </span>{{instruction.name}}</p>
+                                    <li>
+                                        <p> <span class="dot">. </span>{{recipe.instructions}}</p>
                                     </li>
                                 </ul>
                             </div>

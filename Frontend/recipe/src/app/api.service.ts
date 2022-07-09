@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
    public getRecipe(){
-    return this.httpClient.get('http://127.0.0.1:8000/api/recipes/');
+    return this.httpClient.get('https://rec1pe-api.herokuapp.com/api/recipes/15');
   }
 }
 

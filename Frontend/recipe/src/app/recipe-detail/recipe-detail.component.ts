@@ -9,7 +9,8 @@ import { ApiService } from '../api.service';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-  recipeDetail;
+recipe : any;
+
   
   ingredients:Recipe[]=[
     {name:'1 batch roasted chickpeas'},
@@ -40,7 +41,7 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getRecipe().subscribe((data)=>{
       console.log(data);
-      this. = data;
+      this.recipe = data;
     });
   }
 
