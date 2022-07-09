@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.db.models import Q
+from .models import *
 from rest_framework import viewsets, routers
 from django.contrib.auth.models import User
 from recipe_api.models import Profile, Recipe
@@ -18,3 +20,7 @@ class RecipeViewset(viewsets.ModelViewSet):
 class ProfileViewset(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+
+
+def search(request):
+    return render

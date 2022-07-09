@@ -121,8 +121,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
     
+    ) 
 }
 
 #simple Json web tokens custom settings
