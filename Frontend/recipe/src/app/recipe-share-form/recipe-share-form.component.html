@@ -1,0 +1,107 @@
+<div class="cont" style="background-color: #ECEDF3;">
+    <div class="container">
+        <div class="row min-vh-100">
+            <div class="col-lg-8 mx-auto my-5" style="background-color: #fff;">
+                <h2 class="text-center color py-4 fw-bold font-monospace">Share a Recipe </h2> <hr>
+
+                <!-- form start -->
+                <form [formGroup]="recipeShareForm" (ngSubmit)="getRecipeData()">
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="name" class="col-form-label">Recipe Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="name" class="form-control" formControlName="recipe_name">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="dish" class="col-form-label">Dish Type</label>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-select" id="dish" aria-label="Default select example" formControlName="dish_type">
+                                <option selected>Select dish type</option>
+                                <option value="Main Dish">Main Dish</option>
+                                <option value="Side Dish">Side Dish</option>
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Soup">Soup</option>
+                                <option value="Salad">Salad</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="Drink">Drink</option>
+                              </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="prep-time" class="col-form-label">Preparation Time (Mins)</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="number" id="prep-time" class="form-control" placeholder="e.g. 20 mins" formControlName="prep_time_mins">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="prep-time" class="col-form-label">No. of Servings</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="number" id="prep-time" class="form-control" placeholder="e.g. 5" formControlName="no_of_servings">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="prep-time" class="col-form-label">Cooking Time (Mins)</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="number" id="prep-time" class="form-control" placeholder="e.g. 40 mins" formControlName="cooking_time_mins">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="country" class="col-form-label">Country</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="country" class="form-control" placeholder="e.g. Kenya" formControlName="country">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="prep-time" class="col-form-label">Image</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="file" id="prep-time" class="form-control" formControlName="image">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="ingredients" class="col-form-label">Ingredients</label>
+                        </div>
+                        <div class="col-md-8">
+                            <textarea class="form-control" name="" id="ingredients" rows="10" placeholder="Type all ingredients here..." formControlName="ingredients"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-around my-3">
+                        <div class="col-md-4">
+                            <label for="ingredients" class="col-form-label">Instructions</label>
+                        </div>
+                        <div class="col-md-8">
+                            <textarea class="form-control" name="" id="ingredients" rows="10" placeholder="Type all Instructions here..." formControlName="instructions"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="submit" style="margin: 1vh 0;" class="button">Submit</button>
+                    </div>
+                </form>
+                <!-- form end -->
+            </div>
+        </div>
+    </div>
+</div>
