@@ -9,7 +9,7 @@ import { UploaderService } from '../uploader.service';
 })
 export class ProfileComponent implements OnInit {
 
-  DJANGO_SERVER = 'http://127.0.0.1:8000'
+  DJANGO_SERVER = 'https://rec1pe-api.herokuapp.com/api/profile/'
   form!: FormGroup;
   response: any;
   imageURL: string | undefined;
