@@ -16,10 +16,10 @@ export class ProfileComponent implements OnInit {
   firstName: [''] | undefined
   lastName: [''] | undefined
   email!:['']
-    mobilenumber!: ['']
-    City!: ['']
-    Country!: ['']
-    bio!:['']
+  mobilenumber!: ['']
+  City!: ['']
+  Country!: ['']
+  bio!:['']
      
     
 
