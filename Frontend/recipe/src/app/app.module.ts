@@ -13,6 +13,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -29,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
     RecipeShareFormComponent,
     RecipeDetailComponent,
     ProfileComponent,
+    FilterPipe,
    
   ],
   imports: [
