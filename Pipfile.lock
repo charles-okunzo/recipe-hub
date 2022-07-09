@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e92179cb8338397adaeb92296d8b0d1d37da8f4c3db37446802a05fe4f186911"
+            "sha256": "0cfff38e8adefc9b1cb45510ff2a000f3c8475203971c916f02cf53f6042e4c7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -66,6 +66,13 @@
             ],
             "index": "pypi",
             "version": "==0.5.0"
+        },
+        "dj-rest-auth": {
+            "hashes": [
+                "sha256:cf15155756b60a02842c54af62a213975c4eed250a2cce5d31b80dc6cf8592f1"
+            ],
+            "index": "pypi",
+            "version": "==2.2.4"
         },
         "django": {
             "hashes": [
@@ -170,10 +177,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14",
-                "sha256:aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+                "sha256:8298d6d56d39be0e3bc13c1c97d133f9b45d797169a0e11cdd0e0489d786f7ec",
+                "sha256:879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
             ],
-            "version": "==1.26.9"
+            "version": "==1.26.10"
         },
         "whitenoise": {
             "hashes": [
