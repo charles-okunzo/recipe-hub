@@ -1,69 +1,76 @@
-<div class="container min-vh-100" style="display: grid; place-items:center;">
-    <div class="row justify-content-center py-4"> 
-        <div class="col-lg-3 login-img">
-          <img src="../../assets/images/my.jpeg" alt="Sign up image" class="img-fluid">
-        </div>
-        <div class="col-lg-6">
-            
-          <div class="text-center mb-4">
-            <h1>Sign Up</h1>
-            <h6 class="text-muted">Hello! Register to share your cooking experience...</h6>
-          </div>
-               
-                <form [formGroup]="signupForm" (ngSubmit)="registerUser()">
-                    <div class="mb-3">
-                      <label for="username" class="form-label">Username</label>
-                      <input formControlName='username'type="text" id="username" class="form-control" placeholder="Username" required>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="error">
-                      <p>{{ error.username }}</p>
-                    </div>
-                    <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
-                      <p>This field is a required field</p>
-                    </div> -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input formControlName='email'type="text" id="email" class="form-control" placeholder="myemail@gmail.com" required>
-                      </div>
-                      <div class="alert alert-danger" *ngIf="error">
-                        <p>{{ error.email }}</p>
-                      </div>
-                      <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
-
-                        <p>This field is a required field</p>
-                      </div> -->
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input formControlName='password' type="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="error">
-                      <p>{{ error.password }}</p>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
-                      <p>Password must not be less that 8 characters</p>
-                      <!-- <p>This field is a required field</p> -->
-                    </div>
-                    <!-- <div class="mb-3">
-                        <label for="passwordconfirm" class="form-label">Password Confirmation</label>
-                        <input formControlName='Confirmation'type="password" id="passwordconfirm" class="form-control" placeholder="*********">
-                      </div> -->
-                    
-                    <button type="submit" [disabled]="signupForm.invalid" class="btn btn-danger fw-bold">Sign Up</button>
-               </form>
-            
-               <br>
-               <small class="text-muted">Already have an account?
-                <a routerLink="/login"
-                style="text-decoration: none;"><span style="color: #d52b32 ;"> Log In Now</span>
-                </a
-              ></small>
-
-            </div>
-
-        </div>
-
+<div class="container min-vh-100" style="display: grid; place-items: center">
+  <div class="row justify-content-center py-4">
+    <div class="col-lg-3 login-img">
+      <img
+        src="../../assets/images/my.jpeg"
+        alt="Sign up image"
+        class="img-fluid"
+      />
     </div>
+    <div class="col-lg-6">
+      <div class="text-center mb-4">
+        <h1>Sign Up</h1>
+        <h6 class="text-muted">
+          Hello! Register to share your cooking experience...
+        </h6>
+      </div>
+      <form>
+        <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input
+              formControlName="Username"
+              type="text"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="username"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              formControlName="Email"
+              type="text"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="myemail@gmail.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              formControlName="Password"
+              type="password"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="***********"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password Confirmation</label
+            >
+            <input
+              formControlName="Confirmation"
+              type="password"
+              id="disabledTextInput"
+              class="form-control"
+              placeholder="***********"
+            />
+          </div>
 
-
-
-
+          <button type="button" class="btn btn-danger fw-bold">Sign Up</button>
+        </form>
+      </form>
+      <br />
+      <small class="text-muted"
+        >Already have an account?
+        <a routerLink="/login" style="text-decoration: none"
+          ><span style="color: #d52b32"> Log In Now</span>
+        </a></small
+      >
+    </div>
+  </div>
+</div>

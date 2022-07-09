@@ -11,10 +11,13 @@ psycopg2 = "*"
 django-cors-headers = "*"
 cloudinary = "*"
 djangorestframework-simplejwt = "*"
+<<<<<<< HEAD
 gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
 dj-database-url = "*"
+=======
+>>>>>>> diana
 
 [dev-packages]
 

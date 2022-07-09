@@ -103,11 +103,15 @@
     }
   },
   "cli": {
+<<<<<<< HEAD:Frontend/recipe/angular.json
     "analytics": "d04be82c-4f15-4c20-b38e-0abf7057e998"
   },
 <<<<<<< HEAD:Frontend/recipehub/angular.json
   "cli": {
     "analytics": "24da8ac7-ff3f-40fd-8244-1951eafd091b"
+=======
+    "analytics": "dd0560ef-5550-466e-9e29-e78a0569fb14"
+>>>>>>> diana:Frontend/recipehub/angular.json
   }
 =======
   "defaultProject": "recipe"

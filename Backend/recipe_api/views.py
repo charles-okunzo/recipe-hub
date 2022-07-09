@@ -17,4 +17,8 @@ class RecipeViewset(viewsets.ModelViewSet):
 
 class ProfileViewset(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
+<<<<<<< HEAD
     serializer_class = ProfileSerializer
+=======
+    serializer_class = ProfileSerializer
+>>>>>>> diana

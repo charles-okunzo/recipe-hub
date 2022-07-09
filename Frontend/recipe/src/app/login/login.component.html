@@ -8,37 +8,24 @@
         <h1>Log In</h1>
         <h6>Welcome back! Please login to your account</h6>
       </div>
-      <div class="alert alert-danger" *ngIf="invalid">
-        <p>Invalid username or password</p>
-      </div>
-      <form [formGroup]="loginForm" (ngSubmit)="logInUser()">
+      <form >
         <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
+          <label for="exampleInputEmail1" class="form-label">Username</label>
           <input
             type="text"
-            id="username"
+            id="disabledTextInput"
             class="form-control"
             placeholder="username@gmail.com"
-            formControlName="username"
           />
-        </div>
-
-        <div class="alert alert-danger" *ngIf="error_username">
-          <p>{{ error_username }}</p>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+          <label for="exampleInputPassword1" class="form-label">Password</label>
           <input
             type="password"
-            id="password"
+            id="disabledTextInput"
             class="form-control"
             placeholder="********"
-            formControlName="password"
           />
-        </div>
-
-        <div class="alert alert-danger" *ngIf="error_password">
-          <p>{{ error_username }}</p>
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1" />
@@ -46,7 +33,7 @@
             >Remember me? </label
           ><span style="float: right">Forgot Password?</span>
         </div>
-        <button type="submit" class="btn btn-danger fw-bold mb-3">Log In</button>
+        <button type="button" class="btn btn-danger fw-bold mb-3">Log In</button>
         <br />
         <small class="text-muted">New User?
           <a routerLink="/signup"

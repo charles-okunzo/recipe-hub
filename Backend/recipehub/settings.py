@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
+<<<<<<< HEAD
 import cloudinary, cloudinary.api, cloudinary.uploader, django_heroku, dj_database_url
+=======
+import cloudinary, cloudinary.api, cloudinary.uploader
+>>>>>>> diana
 from datetime import timedelta
 
 
@@ -41,10 +45,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'recipe_api',
     'rest_framework',
     "corsheaders",
     'rest_framework_simplejwt',
+=======
+    'recipe',
+    'recipe_api',
+    'rest_framework',
+    "corsheaders",
+>>>>>>> diana
     'rest_framework_simplejwt.token_blacklist',
 ]
 
@@ -187,6 +198,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200'
+<<<<<<< HEAD
 ]
 
 django_heroku.settings(locals())
+=======
+]
+>>>>>>> diana

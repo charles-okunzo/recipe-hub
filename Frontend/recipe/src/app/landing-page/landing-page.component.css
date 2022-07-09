@@ -29,7 +29,11 @@
 .button
 {
     background-color: #D52B32;
+<<<<<<< HEAD:Frontend/recipe/src/app/landing-page/landing-page.component.css
     padding: 10px 30px;
+=======
+    padding: 10px 35px;
+>>>>>>> diana:Frontend/recipehub/src/app/landing-page/landing-page.component.css
     font-size: 2.5vh;
     font-weight: bold;
     border-style: none;

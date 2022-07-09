@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
             user.set_password(validated_data['password'])
             user.save()
             return user
+<<<<<<< HEAD
         
         # def create(self, validated_data):
         #     """ This function overwrites the default user creation function"""
@@ -37,6 +38,8 @@ class UserSerializer(serializers.ModelSerializer):
         #         instance.set_password(password)
         #     instance.save()
         #     return instance
+=======
+>>>>>>> diana
 
 class RecipeSerializer(serializers.HyperlinkedModelSerializer):
     posted_by = UserSerializer()

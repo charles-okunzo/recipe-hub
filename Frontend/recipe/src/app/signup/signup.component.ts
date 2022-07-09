@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormBuilder, FormControl, Validators} from '@angular/forms'
+import {FormGroup,FormBuilder} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,40 +11,29 @@ import { UserService } from '../service/user.service';
 export class SignupComponent implements OnInit {
   
   public signupForm !:FormGroup;
-
-  username!:FormControl
-
-  constructor(private formBuilder : FormBuilder, private userService : UserService, private router:Router) { }
+  constructor(private formBuilder : FormBuilder, private http : HttpClient ,private router:Router) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      username:[''],
-      email:[''],
-      password:['', Validators.minLength(8)],
-      // Confirmation:[''],
+      Username:[''],
+      Email:[''],
+      Password:[''],
+      Confirmation:[''],
     })
 
-    this.username = new FormControl('')
-
-
-    }
-    error:any
-
-    registerUser(){
-      this.userService.registerUser(this.signupForm.value).subscribe(
-        resp => {
-          alert(`User has been created successfuly!`)
-          this.signupForm.reset();
-          this.router.navigate(['/','login']);
-        },
-        err =>{
-          console.log('error', err)
-          this.error = err['error']
-        }
-      )
-      console.log(this.signupForm.value)
-    }
-
-
   }
+  signUp(){
+    this.http.post<any>('http://localhost:3000/signupUsers',this.signupForm.value)
+    .subscribe(res =>{
+      alert('Signup Successful');
+      this.signupForm.reset();
+      this.router.navigate(['login']);
+    })
+    }
+    
+
+    }
+
+
+
 

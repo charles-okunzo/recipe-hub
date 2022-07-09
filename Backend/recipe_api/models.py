@@ -52,4 +52,8 @@ class Profile(models.Model):
         instance.profile.save()
 
     def __str__(self):
+<<<<<<< HEAD
         return f'{self.user.username}\'s Profile'
+=======
+        return f'{self.user.username}\'s Profile'
+>>>>>>> diana

@@ -5,13 +5,13 @@
                 <h2 class="text-center color py-4 fw-bold font-monospace">Share a Recipe </h2> <hr>
 
                 <!-- form start -->
-                <form [formGroup]="recipeShareForm" (ngSubmit)="getRecipeData()">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
                             <label for="name" class="col-form-label">Recipe Name</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" id="name" class="form-control" formControlName="recipe_name">
+                            <input type="text" id="name" class="form-control">
                         </div>
                     </div>
 
@@ -20,25 +20,25 @@
                             <label for="dish" class="col-form-label">Dish Type</label>
                         </div>
                         <div class="col-md-8">
-                            <select class="form-select" id="dish" aria-label="Default select example" formControlName="dish_type">
+                            <select class="form-select" id="dish" aria-label="Default select example">
                                 <option selected>Select dish type</option>
-                                <option value="Main Dish">Main Dish</option>
-                                <option value="Side Dish">Side Dish</option>
-                                <option value="Appetizer">Appetizer</option>
-                                <option value="Soup">Soup</option>
-                                <option value="Salad">Salad</option>
-                                <option value="Dessert">Dessert</option>
-                                <option value="Drink">Drink</option>
+                                <option value="1">Main Dish</option>
+                                <option value="2">Side Dish</option>
+                                <option value="3">Appetizer</option>
+                                <option value="3">Soup</option>
+                                <option value="3">Salad</option>
+                                <option value="3">Dessert</option>
+                                <option value="3">Drink</option>
                               </select>
                         </div>
                     </div>
 
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
-                            <label for="prep-time" class="col-form-label">Preparation Time (Mins)</label>
+                            <label for="prep-time" class="col-form-label">Preparation Time</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="number" id="prep-time" class="form-control" placeholder="e.g. 20 mins" formControlName="prep_time_mins">
+                            <input type="text" id="prep-time" class="form-control" placeholder="e.g. 20 mins">
                         </div>
                     </div>
 
@@ -47,25 +47,16 @@
                             <label for="prep-time" class="col-form-label">No. of Servings</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="number" id="prep-time" class="form-control" placeholder="e.g. 5" formControlName="no_of_servings">
+                            <input type="text" id="prep-time" class="form-control" placeholder="e.g. 5">
                         </div>
                     </div>
 
                     <div class="row g-3 align-items-around my-3">
                         <div class="col-md-4">
-                            <label for="prep-time" class="col-form-label">Cooking Time (Mins)</label>
+                            <label for="prep-time" class="col-form-label">Cooking Time</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="number" id="prep-time" class="form-control" placeholder="e.g. 40 mins" formControlName="cooking_time_mins">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-around my-3">
-                        <div class="col-md-4">
-                            <label for="country" class="col-form-label">Country</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" id="country" class="form-control" placeholder="e.g. Kenya" formControlName="country">
+                            <input type="text" id="prep-time" class="form-control" placeholder="e.g. 40 mins">
                         </div>
                     </div>
 
@@ -74,7 +65,7 @@
                             <label for="prep-time" class="col-form-label">Image</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="file" id="prep-time" class="form-control" formControlName="image">
+                            <input type="file" id="prep-time" class="form-control">
                         </div>
                     </div>
 
@@ -83,7 +74,7 @@
                             <label for="ingredients" class="col-form-label">Ingredients</label>
                         </div>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="" id="ingredients" rows="10" placeholder="Type all ingredients here..." formControlName="ingredients"></textarea>
+                            <textarea class="form-control" name="" id="ingredients" rows="10" placeholder="Type all ingredients here..."></textarea>
                         </div>
                     </div>
 
@@ -92,12 +83,12 @@
                             <label for="ingredients" class="col-form-label">Instructions</label>
                         </div>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="" id="ingredients" rows="10" placeholder="Type all Instructions here..." formControlName="instructions"></textarea>
+                            <textarea class="form-control" name="" id="ingredients" rows="10" placeholder="Type all Instructions here..."></textarea>
                         </div>
                     </div>
 
                     <div class="text-center mb-3">
-                        <button type="submit" style="margin: 1vh 0;" class="button">Submit</button>
+                        <button style="margin: 1vh 0;" class="button">Submit</button>
                     </div>
                 </form>
                 <!-- form end -->
