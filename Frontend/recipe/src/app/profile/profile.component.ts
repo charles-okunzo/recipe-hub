@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UploaderService } from '../uploader.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
      
     
 
-  constructor(private formBuilder: FormBuilder, private uploaderService: UploaderService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
     const formData = new FormData();
     // formData.append('file', this.form.get('profile').value);
 
-    this.uploaderService.upload(formData).subscribe(
+    this.userService.upload(formData).subscribe(
       (res) => {
         this.response = res;
         this.imageURL = `${this.DJANGO_SERVER}${res.file}`;
