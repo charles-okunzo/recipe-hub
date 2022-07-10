@@ -11,18 +11,18 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 class UserViewset(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)---> Default classes enabled in settings.py
     # authentication_classes = (TokenAuthentication,)
 
 
 class RecipeViewset(viewsets.ModelViewSet):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
+    # authentication_classes = (TokenAuthentication,)
 
 class ProfileViewset(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
+    # authentication_classes = (TokenAuthentication,)
