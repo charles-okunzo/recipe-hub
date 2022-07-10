@@ -6,11 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.component';
+import { AuthGuards } from './service/user.service';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path:'', component:LandingPageComponent},
-  {path:'home', component:HomepageComponent},
+  {path:'home', component:HomepageComponent, canActivate:[AuthGuards]},
   {path:'profile', component:ProfileComponent},
   {path:'recipe-share', component:RecipeShareFormComponent},
   {path:'recipe-detail', component:RecipeDetailComponent},

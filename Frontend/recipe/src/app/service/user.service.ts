@@ -3,8 +3,8 @@ import { HttpClient, HttpEvent, HttpInterceptor, HttpRequest, HttpHandler } from
 import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap, shareReplay } from 'rxjs/operators';
-import jwtDecode from 'jwt-decode'
-import * as moment from 'moment'
+import jwtDecode from 'jwt-decode' //npm install -s jwt-decode -->npm install -s @types/jwt-decode
+import * as moment from 'moment'  //npm install -s moment
 
 @Injectable({
   providedIn: 'root'
@@ -42,9 +42,9 @@ export class UserService {
     return this.http.post(`${this.BASEURL}api/users/`, userData);
   }
   //disregard this user login method
-  // loginUser(userData:any): Observable<any>{
-  //   return this.http.post(`${this.BASEURL}auth/obtain-auth-token/`, userData);
-  // }
+  loginUser(userData:any): Observable<any>{
+    return this.http.post(`${this.BASEURL}auth/obtain-auth-token/`, userData);
+  }
 
   DJANGO_SERVER: string = "http://127.0.0.1:8000";
 
@@ -54,13 +54,13 @@ export class UserService {
 
   
 
-  userLogin(userPayLoad:any){
-    this.http.post<logInResponse>(`${this.BASEURL}auth/login/`, userPayLoad).pipe(
+  userLogin(userPayLoad:any):Observable<any>{
+    return this.http.post<logInResponse>(`${this.BASEURL}auth/login/`, userPayLoad).pipe(
       tap(response => {
         this.setSession(response.access_token)
         localStorage.setItem('access_token', response.refresh_token)
       }),
-      shareReplay()
+      shareReplay(),
     )
   }
 
@@ -73,14 +73,14 @@ export class UserService {
     if (moment().isBetween(this.getExpiration().subtract(12, 'hours'), this.getExpiration())){
       this.http.post<refreshResponse>(`${this.BASEURL}token/refresh/`, {refresh : this.tokenRefresh}).pipe(
         tap(response => this.setSession(response.access)),
-        shareReplay()
+        shareReplay(),
       ).subscribe()
     }
   }
 
   getExpiration(){
     const expiration = localStorage.getItem('expiresAt');
-    const expiresAt = JSON.parse(expiration);
+    const expiresAt = JSON.parse(expiration!);
 
 
     return moment(expiresAt);
@@ -98,15 +98,17 @@ export class UserService {
 
 }
 //interceptor class
-
-export class AuthInterceptors implements HttpInterceptor {
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const access_token = localStorage.getItem('access_token')
 
     if(access_token){
       const cloned = req.clone({
-        headers:req.headers.set('Authorization', `JWT${access_token}`)
+        headers:req.headers.set('Authorization', `Bearer ${access_token}`)
       })
 
       return next.handle(cloned)
@@ -116,6 +118,25 @@ export class AuthInterceptors implements HttpInterceptor {
   }
 
 }
+
+@Injectable()
+export class AuthGuards implements CanActivate{
+  constructor(private userService: UserService, private router:Router){}
+
+  canActivate(){
+    if(this.userService.isLoggedIn()){
+      this.userService.refreshToken();
+
+      return true
+    }else{
+      this.userService.logout();
+
+      this.router.navigate(['login'])
+      return false;
+    }
+  }
+}
+
 
 //jwtpayload interface
 
