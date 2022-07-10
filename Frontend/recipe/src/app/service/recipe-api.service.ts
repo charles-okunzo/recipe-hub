@@ -15,6 +15,10 @@ export class RecipeApiService {
     return this.http.get<Recipe>(this.RECIPE_URL)
   }
 
+  postRecipes(recipeFormData:any):Observable<Recipe>{
+    return this.http.post<Recipe>(this.RECIPE_URL, recipeFormData)
+  }
+
 
   
 }

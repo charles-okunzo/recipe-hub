@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Recipe } from '../api';
+import { RecipeApiService } from '../service/recipe-api.service';
 
 @Component({
   selector: 'app-recipe-share-form',
@@ -8,8 +10,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class RecipeShareFormComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private recipeApiService: RecipeApiService) { }
+    //recipe array instance of type Recipe inteface
+    recipes!:Recipe[]
 
   recipeShareForm = new FormGroup({
     recipe_name : new FormControl(''),
@@ -26,8 +29,15 @@ export class RecipeShareFormComponent implements OnInit {
 
   })
 
-  getRecipeData(){
+  addRecipe(){
     console.log(this.recipeShareForm.value)
+    this.recipeApiService.postRecipes(this.recipeShareForm.value).subscribe(
+    {next:data =>{
+      this.recipes.push(data)
+    },error: err=>{
+      console.log('error', err)
+    }}
+    )
   }
 
   ngOnInit(): void {
