@@ -34,7 +34,7 @@
                       </div> -->
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
-                      <input formControlName='password' type="password" name="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
+                      <input formControlName='password1' type="password" name="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
                     </div>
                     <div class="alert alert-danger" *ngIf="error_password">
                       <p>{{ error_password }}</p>
@@ -43,10 +43,10 @@
                       <p>Password must not be less that 8 characters</p>
                       <!-- <p>This field is a required field</p> -->
                     </div>
-                    <!-- <div class="mb-3">
+                    <div class="mb-3">
                         <label for="passwordconfirm" class="form-label">Password Confirmation</label>
-                        <input formControlName='Confirmation'type="password" id="passwordconfirm" class="form-control" placeholder="*********">
-                      </div> -->
+                        <input formControlName='password2'type="password" id="passwordconfirm" minlength="8" class="form-control" placeholder="*********">
+                      </div>
                     
                     <button type="submit" [disabled]="signupForm.invalid" class="btn btn-danger fw-bold">Sign Up</button>
                </form>

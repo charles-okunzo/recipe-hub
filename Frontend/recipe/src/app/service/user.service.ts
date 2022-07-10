@@ -1,34 +1,48 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpEvent, HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
+import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { BehaviorSubject, of } from 'rxjs';
-import { JwtHelperService } from '@auth0/angular-jwt' //library that is used to decript Access/refresh token --> npm i @auth0/angular-jwt
+import { tap, shareReplay } from 'rxjs/operators';
+import jwtDecode from 'jwt-decode'
+import * as moment from 'moment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  // resp_data:any = {}
-
-  userInfo:BehaviorSubject<any> = new BehaviorSubject(null)
-  jwtHelper = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
-  LOGINBASEURL='https://rec1pe-api.herokuapp.com/auth/obtain-auth-token/'
+  BASEURL='https://rec1pe-api.herokuapp.com/'
 
   AUTH_TOKEN_URL='https://rec1pe-api.herokuapp.com/auth/token/'
 
-  BASEURL='https://rec1pe-api.herokuapp.com/api/users/'
 
+  //stores decoded user data and access token in the local storage
+  private setSession(authResponse:logInResponse){
+    const access_token = authResponse.access_token
+    const payload = jwtDecode<jwtPayload>(access_token);
+    const expitesAt = moment.unix(payload.exp)
+
+
+    localStorage.setItem('access_token', access_token)
+    localStorage.setItem('refresh_token', authResponse.refresh_token)
+    localStorage.setItem('expiresAt', JSON.stringify(expitesAt.valueOf()))
+  }
+  //getter method--> access token from local storage
+  get token(){
+    return localStorage.getItem('refresh_token')
+  }
+
+
+  //method for registering users
   registerUser(userData:any): Observable<any> {
-    return this.http.post(this.BASEURL, userData);
+    return this.http.post(`${this.BASEURL}api/users/`, userData);
   }
-
-  loginUser(userData:any): Observable<any>{
-    return this.http.post(this.LOGINBASEURL, userData);
-  }
+  //disregard this user login method
+  // loginUser(userData:any): Observable<any>{
+  //   return this.http.post(`${this.BASEURL}auth/obtain-auth-token/`, userData);
+  // }
 
   DJANGO_SERVER: string = "http://127.0.0.1:8000";
 
@@ -39,35 +53,57 @@ export class UserService {
   
 
   userLogin(userPayLoad:any){
-    this.http.post(this.AUTH_TOKEN_URL, userPayLoad).subscribe(
-      resp =>{
-        console.log(resp)
-        // this.resp_data = resp
-        console.log(resp)
-      },
-      err =>{
-        console.log('error', err)
-      }
+    this.http.post<logInResponse>(`${this.BASEURL}auth/login/`, userPayLoad).pipe(
+      tap(response => this.setSession(response)),
+      shareReplay()
     )
-
-    if (userPayLoad){}
-      const refreshtoken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90e…pvIn0.saiemkj2u_SsjccoaNj34_epr2cXehK3u_g48kLfAKs';
-      const accesstoken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90e…m8ifQ.cMQA2M28xU3wQ8aWrnqTXWasRouib6rF67fgyR0NzAA';
-
-      localStorage.setItem('access_token', accesstoken);
-      localStorage.setItem('refresh_token', refreshtoken);
-
-
-      const decriptedUser = this.jwtHelper.decodeToken(accesstoken);
-      console.log(decriptedUser)
-    
-      const data = {
-          'access_token':accesstoken,
-          'refresh_token':refreshtoken
-      };
-
-      this.userInfo.next(data);
-
   }
 
+  logout(){
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('expiresAt')
+  }
+
+  refreshToken(){
+    if (moment().isBetween(this.getExpiration().subtract(12, 'hours'), this.getExpiration())){
+      this.http.post<logInResponse>(this.LOGIN_AUTH_BASE_URL, this.token).pipe(
+        tap(response => this.setSession(response)),
+        shareReplay()
+      ).subscribe()
+    }
+  }
+
+  getExpiration(){
+    const expiration = localStorage.getItem('expiresAt');
+    const expiresAt = JSON.parse(expiration);
+
+
+    return moment(expiresAt);
+  }
+
+
+  isLoggedIn(){
+    return moment().isBefore(this.getExpiration())
+  }
+
+
+  isLoggedOut(){
+    return !this.isLoggedIn();
+  }
+
+}
+
+//jwtpayload interface
+
+interface jwtPayload{
+  user_id:number,
+  username:string,
+  email:string,
+  exp:number
+}
+
+interface logInResponse{
+  access_token:string,
+  refresh_token:string,
+  user:object
 }
