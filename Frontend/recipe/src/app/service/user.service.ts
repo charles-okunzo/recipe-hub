@@ -19,18 +19,20 @@ export class UserService {
 
 
   //stores decoded user data and access token in the local storage
-  private setSession(authResponse:logInResponse){
-    const access_token = authResponse.access_token
+  private setSession(access_token:string){
     const payload = jwtDecode<jwtPayload>(access_token);
     const expitesAt = moment.unix(payload.exp)
 
 
     localStorage.setItem('access_token', access_token)
-    localStorage.setItem('refresh_token', authResponse.refresh_token)
     localStorage.setItem('expiresAt', JSON.stringify(expitesAt.valueOf()))
   }
   //getter method--> access token from local storage
   get token(){
+    return localStorage.getItem('access_token')
+  }
+
+  get tokenRefresh(){
     return localStorage.getItem('refresh_token')
   }
 
@@ -54,7 +56,10 @@ export class UserService {
 
   userLogin(userPayLoad:any){
     this.http.post<logInResponse>(`${this.BASEURL}auth/login/`, userPayLoad).pipe(
-      tap(response => this.setSession(response)),
+      tap(response => {
+        this.setSession(response.access_token)
+        localStorage.setItem('access_token', response.refresh_token)
+      }),
       shareReplay()
     )
   }
@@ -66,8 +71,8 @@ export class UserService {
 
   refreshToken(){
     if (moment().isBetween(this.getExpiration().subtract(12, 'hours'), this.getExpiration())){
-      this.http.post<logInResponse>(this.LOGIN_AUTH_BASE_URL, this.token).pipe(
-        tap(response => this.setSession(response)),
+      this.http.post<refreshResponse>(`${this.BASEURL}token/refresh/`, {refresh : this.tokenRefresh}).pipe(
+        tap(response => this.setSession(response.access)),
         shareReplay()
       ).subscribe()
     }
@@ -92,6 +97,25 @@ export class UserService {
   }
 
 }
+//interceptor class
+
+export class AuthInterceptors implements HttpInterceptor {
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const access_token = localStorage.getItem('access_token')
+
+    if(access_token){
+      const cloned = req.clone({
+        headers:req.headers.set('Authorization', `JWT${access_token}`)
+      })
+
+      return next.handle(cloned)
+    }else{
+      return next.handle(req)
+    }
+  }
+
+}
 
 //jwtpayload interface
 
@@ -106,4 +130,9 @@ interface logInResponse{
   access_token:string,
   refresh_token:string,
   user:object
+}
+
+interface refreshResponse{
+  access:string,
+  refresh:string
 }
