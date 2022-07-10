@@ -132,3 +132,11 @@
     font-weight: bolder;
   }
 }
+@media (max-width: 641px) {
+  .text p {
+    font-size: 1rem;
+  }
+  .text h1 {
+    font-size: 2.5rem;
+  }
+}
