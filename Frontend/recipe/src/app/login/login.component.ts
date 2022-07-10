@@ -26,27 +26,16 @@ export class LoginComponent implements OnInit {
   
   //method called when the user submits the login button
   logInUser(){
-    this.userService.userLogin(this.loginForm.value).subscribe(
-      success => this.router.navigate(['/home'])
-    );
-
-
-    this.userService.loginUser(this.loginForm.value).subscribe({
-      next:resp =>{
-        console.log(resp)
-        this.router.navigate(['/', 'home'])
-        alert('User logged in successfully!')
-        console.log(resp)
-
-      },
-      error:err =>{
+    this.userService.userLogin(this.loginForm.value).subscribe({
+      next:success => this.router.navigate(['/home']),
+      error:err=>{
         this.error_username = err['error'].username
         this.error_password = err['error'].password
         this.invalid = err['error'].non_field_errors
         console.log('error', err)
-
       }
-    })
+    });
+
     
   }
 

@@ -20,6 +20,7 @@
             class="form-control"
             placeholder="username@gmail.com"
             formControlName="username"
+            required
           />
         </div>
 
@@ -34,11 +35,14 @@
             class="form-control"
             placeholder="********"
             formControlName="password"
+            required
+            minlength="8"
+            
           />
         </div>
 
         <div class="alert alert-danger" *ngIf="error_password">
-          <p>{{ error_username }}</p>
+          <p>{{ error_password }}</p>
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1" />
