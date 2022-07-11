@@ -68,7 +68,7 @@ class BookmarkViewSet(viewsets.ModelViewSet):
 
     def perform_update(self, serializer):
         if self.request.user.is_authenticated:
-            serializer.save(posted_by = self.request.user)
+            serializer.save(user = self.request.user)
 
 
 class RatingViewSet(viewsets.ModelViewSet):
@@ -77,4 +77,4 @@ class RatingViewSet(viewsets.ModelViewSet):
 
     def perform_update(self, serializer):
         if self.request.user.is_authenticated:
-            serializer.save(posted_by = self.request.user)
+            serializer.save(user = self.request.user)
