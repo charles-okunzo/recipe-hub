@@ -48,7 +48,7 @@ class Bookmark(models.Model):
     @receiver(post_save, sender=Recipe)
     def create_rating(sender, instance, created, **kwargs):
         if created:
-            Recipe.objects.create(user=instance.user, recipe=instance)
+            Recipe.objects.create(user=instance.posted_by, recipe=instance)
         instance.bookmarked.save()
 
 
@@ -60,7 +60,7 @@ class Rating(models.Model):
     @receiver(post_save, sender=Recipe)
     def create_rating(sender, instance, created, **kwargs):
         if created:
-            Recipe.objects.create(user=instance.user, recipe=instance)
+            Recipe.objects.create(user=instance.posted_by, recipe=instance)
         instance.rating.save()
 
 

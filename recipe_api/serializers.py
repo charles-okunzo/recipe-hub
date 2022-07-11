@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from recipe_api.models import Profile, Recipe
+from recipe_api.models import Profile, Recipe, Bookmark, Rating
 from django.contrib.auth.models import User
 
 
@@ -32,6 +32,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class RecipeSerializer(serializers.HyperlinkedModelSerializer):
     posted_by = UserSerializer()
+    bookmarked = serializers.HyperlinkedRelatedField(view_name='bookmarked-detail', read_only=True)
+    ratings = serializers.HyperlinkedRelatedField(view_name='ratings-detail', read_only=True)
     class Meta:
         model = Recipe
         fields = (
@@ -66,4 +68,28 @@ class ProfileSerializer(serializers.ModelSerializer):
             'country',
             'mobile_no',
             'url',
+        )
+
+
+class BookmarkSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    recipe = RecipeSerializer()
+    class Meta:
+        model = Bookmark
+        fields = (
+            'bookmarked',
+            'user',
+            'recipe'
+        )
+
+
+class RatingSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    recipe = RecipeSerializer()
+    class Meta:
+        model = Rating
+        fields = (
+            'rating',
+            'user',
+            'recipe'
         )
