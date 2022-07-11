@@ -26,7 +26,6 @@ class Recipe(models.Model):
     instructions = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_owner')
-    ratings = models.PositiveIntegerField(null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
     
 
@@ -45,23 +44,29 @@ class Bookmark(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='bookmarked')
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='bookmarked')
 
-    @receiver(post_save, sender=Recipe)
-    def create_rating(sender, instance, created, **kwargs):
-        if created:
-            Recipe.objects.create(user=instance.posted_by, recipe=instance)
-        instance.bookmarked.save()
+    # @receiver(post_save, sender=Recipe)
+    # def create_bookmarked(sender, instance, created, **kwargs):
+    #     if created:
+    #         Bookmark.objects.create(user=instance.posted_by, recipe=instance)
+    
+    # @receiver(post_save, sender = Recipe)
+    # def save_profile(sender, instance, **kwargs):
+    #         instance.bookmarked.save()
 
 
 class Rating(models.Model):
-    ratings = models.PositiveIntegerField(default=0, null=True, blank=True)
+    rating = models.PositiveIntegerField(default=0, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='rating')
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='rating')
 
-    @receiver(post_save, sender=Recipe)
-    def create_rating(sender, instance, created, **kwargs):
-        if created:
-            Recipe.objects.create(user=instance.posted_by, recipe=instance)
-        instance.rating.save()
+    # @receiver(post_save, sender=Recipe)
+    # def create_rating(sender, instance, created, **kwargs):
+    #     if created:
+    #         Rating.objects.create(user=instance.posted_by, recipe=instance)
+    
+    # @receiver(post_save, sender = Recipe)
+    # def save_profile(sender, instance, **kwargs):
+    #         instance.rating.save()
 
 
 
