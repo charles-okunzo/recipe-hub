@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   //method called when the user submits the login button
   logInUser(){
     this.userService.userLogin(this.loginForm.value).subscribe({
-      next:success => this.router.navigate(['/home']),
+      next:success => this.router.navigate(['home']),
       error:err=>{
         this.error_username = err['error'].username
         this.error_password = err['error'].password

@@ -54,7 +54,7 @@ export class UserService {
     return this.http.post<logInResponse>(`${this.BASEURL}auth/login/`, userPayLoad).pipe(
       tap(response => {
         this.setSession(response.access_token)
-        localStorage.setItem('access_token', response.refresh_token)
+        localStorage.setItem('refresh_token', response.refresh_token)
       }),
       shareReplay(),
     )
@@ -91,6 +91,14 @@ export class UserService {
 
   isLoggedOut(){
     return !this.isLoggedIn();
+  }
+
+  getCurrentUser(){
+    const token = this.token
+    const decordedUser = jwtDecode<jwtPayload>(token!)
+    const userId = decordedUser.user_id
+
+    return this.http.get<User>(`${this.BASEURL}api/users/${userId}`)
   }
 
 }
@@ -153,4 +161,28 @@ interface logInResponse{
 interface refreshResponse{
   access:string,
   refresh:string
+}
+
+interface User{
+  id: number,
+  username: string,
+  first_name: string,
+  last_name: string,
+  email: string,
+}
+
+interface Profile{
+  id: number,
+        user: {
+            id: number,
+            username: string,
+            first_name: string,
+            last_name: string,
+            email: string,
+        },
+        profile_img: string,
+        bio: string,
+        city: string,
+        country: string,
+        mobile_no: number,
 }

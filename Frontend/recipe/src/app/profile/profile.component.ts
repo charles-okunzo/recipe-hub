@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   City!: ['']
   Country!: ['']
   bio!:['']
+
+  currentUser:any;
      
     
 
@@ -29,6 +31,18 @@ export class ProfileComponent implements OnInit {
     this.form = this.formBuilder.group({
       profile: ['']
     });
+
+    this.userService.getCurrentUser().subscribe({
+      next: userdata =>{
+        this.currentUser=userdata
+        console.log(userdata.first_name)
+        console.log(userdata.email)
+        console.log(userdata.username)
+        console.log(userdata.last_name)
+      }
+    })
+    
+
   }
 
   onChange(event: { target: { files: string | any[]; }; }) {
