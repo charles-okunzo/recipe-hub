@@ -11,7 +11,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="{{recipe.image.url}}" class="img-fluid" alt="">
+                                        <img src="{{recipe.image}}" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-8">
                                     <h2>{{recipe.recipe_name|uppercase}}</h2>
@@ -68,3 +68,20 @@
         <div class="col-md-3"></div>
     </div>
 </div>
+
+<div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <label for="search-text">Search Text</label>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+          [(ngModel)]="searchText" placeholder="Enter text to search" 
+          autofocus>
+      </div>
+      <ul class="list-group list-group-flush">
+        <!-- results of ngFor is passed to appFilter with argument searchText -->
+        <li class="list-group-item" *ngFor="let c of characters | filter: searchText">
+          {{c}}
+        </li>
+      </ul>
+    </div>
+  </div>
