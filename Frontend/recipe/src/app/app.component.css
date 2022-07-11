@@ -1,0 +1,49 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+    th{
+        background-color: red;
+        border: 1px solid red;
+    }
+    td {
+        border: 1px solid #dddddd;
+    }
+    td, th {
+        text-align: left;
+        padding: 8px;
+    }
+      
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+ 
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .searchTerm:focus {
+    color: #00B4CC;
+  }
+  p{
+      color: #383c52;
+  }
+
+input {
+    width: 50% !important;
+    margin: 2px 0 20px 20px;
+}

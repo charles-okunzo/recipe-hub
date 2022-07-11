@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 interface Country {
-  name: string;
+  recipe_name: string;
   flag: string;
   area: number;
   population: number;
@@ -20,16 +20,23 @@ export class AppComponent {
 
   searchTerm = '';
   countries: Country[] = [];
+  allCountries: Country[] = [];
   term = '';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Country[]>('./assets/data/countries.json')
+    this.http.get<Country[]>('https://rec1pe-api.herokuapp.com/api/recipes/')
       .subscribe((data: Country[]) => {
         this.countries = data;
+        this.allCountries = this.countries;
+
       });
   }
-  
+  search(value: string): void {
+    this.countries = this.allCountries.filter((val) =>
+      val.recipe_name.toLowerCase().includes(value)
+    );
+  }
   
 }
