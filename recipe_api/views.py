@@ -66,6 +66,14 @@ class BookmarkViewSet(viewsets.ModelViewSet):
     queryset = Bookmark.objects.all()
     serializer_class = BookmarkSerializer
 
+    def get_queryset(self):
+        queryset = Bookmark.objects.all()
+
+        search = self.request.GET.get('filter_query')
+        if search:
+            return queryset.filter(user__username = search)
+        return queryset
+
     def perform_update(self, serializer):
         if self.request.user.is_authenticated:
             serializer.save(user = self.request.user)
