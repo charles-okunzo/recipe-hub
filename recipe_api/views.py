@@ -6,6 +6,7 @@ from recipe_api.serializers import ProfileSerializer, RecipeSerializer, UserSeri
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
+from django.db.models import Q
 
 # Create your views here.
 
@@ -19,8 +20,17 @@ class UserViewset(viewsets.ModelViewSet):
 class RecipeViewset(viewsets.ModelViewSet):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)---> Default classes enabled in settings.py
     # authentication_classes = (TokenAuthentication,)
+
+    # if a query request is there returnthe queried set otherwise return everything
+    def get_queryset(self):
+        queryset = Recipe.objects.all()
+        search = self.request.GET.get('q')
+
+        if search:
+            return queryset.filter(Q(recipe_name__icontains=search) | Q(ingredients__icontains=search) | Q(no_of_servings__icontains=search) | Q(country__icontains=search) | Q(ratings__icontains=search))
+        return queryset
 
     #add more information before creating a user
     def perform_create(self, serializer):
@@ -45,7 +55,7 @@ class RecipeViewset(viewsets.ModelViewSet):
 class ProfileViewset(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)---> Default classes enabled in settings.py
     # authentication_classes = (TokenAuthentication,)
 
     def perform_update(self, serializer):
