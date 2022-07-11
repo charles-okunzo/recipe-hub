@@ -30,9 +30,9 @@ class Recipe(models.Model):
     
 
 
-    @property
-    def average_rating(self):
-        ...
+    # @property
+    # def average_rating(self):
+    #     ...
 
 
     def __str__(self):
@@ -40,18 +40,10 @@ class Recipe(models.Model):
 
 
 class Bookmark(models.Model):
-    bookmarked = models.BooleanField(default=False)
+    bookmarked = models.BooleanField(default=False, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='bookmarked')
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='bookmarked')
 
-    # @receiver(post_save, sender=Recipe)
-    # def create_bookmarked(sender, instance, created, **kwargs):
-    #     if created:
-    #         Bookmark.objects.create(user=instance.posted_by, recipe=instance)
-    
-    # @receiver(post_save, sender = Recipe)
-    # def save_profile(sender, instance, **kwargs):
-    #         instance.bookmarked.save()
 
 
 class Rating(models.Model):
@@ -59,14 +51,6 @@ class Rating(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='rating')
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='rating')
 
-    # @receiver(post_save, sender=Recipe)
-    # def create_rating(sender, instance, created, **kwargs):
-    #     if created:
-    #         Rating.objects.create(user=instance.posted_by, recipe=instance)
-    
-    # @receiver(post_save, sender = Recipe)
-    # def save_profile(sender, instance, **kwargs):
-    #         instance.rating.save()
 
 
 

@@ -29,7 +29,7 @@ class RecipeViewset(viewsets.ModelViewSet):
         search = self.request.GET.get('q')
 
         if search:
-            return queryset.filter(Q(recipe_name__icontains=search) | Q(ingredients__icontains=search) | Q(no_of_servings__icontains=search) | Q(country__icontains=search) | Q(ratings__icontains=search))
+            return queryset.filter(Q(recipe_name__icontains=search) | Q(ingredients__icontains=search) | Q(no_of_servings__icontains=search) | Q(country__icontains=search) | Q(rating__rating__icontains=search))
         return queryset
 
     #add more information before creating a user

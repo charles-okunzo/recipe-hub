@@ -32,8 +32,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class RecipeSerializer(serializers.HyperlinkedModelSerializer):
     posted_by = UserSerializer()
-    bookmarked = serializers.HyperlinkedRelatedField(view_name='bookmarked-detail', read_only=True)
-    rating = serializers.HyperlinkedRelatedField(view_name='rating-detail', read_only=True)
+    bookmarked = serializers.HyperlinkedRelatedField(many=True, view_name='bookmarked-detail', read_only=True)
+    rating = serializers.HyperlinkedRelatedField(many=True, view_name='rating-detail', read_only=True)
     class Meta:
         model = Recipe
         fields = (
