@@ -1,5 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
+
+
+
+interface Country {
+  name: string;
+  flag: string;
+  area: number;
+  population: number;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,26 +17,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe';
-  filterTerm!: string;
-  userRecords = [
-    {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-    },
-    {
-      id: 3,
-      name: 'Clementine Bauch',
-      username: 'Samantha',
-      email: 'Nathan@yesenia.net',
-    },
-  ]
+
+  searchTerm = '';
+  countries: Country[] = [];
+  term = '';
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.http.get<Country[]>('./assets/data/countries.json')
+      .subscribe((data: Country[]) => {
+        this.countries = data;
+      });
+  }
+  
   
 }

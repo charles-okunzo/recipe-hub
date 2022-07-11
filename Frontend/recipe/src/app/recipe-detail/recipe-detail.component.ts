@@ -3,6 +3,12 @@ import { Recipe } from '../recipe';
 import { ApiService } from '../api.service';
 import { FilterPipe } from '../filter.pipe';
 
+interface Country {
+  name: string;
+  flag: string;
+  area: number;
+  population: number;
+}
 
 @Component({
   selector: 'app-recipe-detail',
@@ -10,6 +16,7 @@ import { FilterPipe } from '../filter.pipe';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
+  [x: string]: any;
 recipe : any;
 selectedRecipe!: Recipe;
 recipes : Recipe[]=[
@@ -29,18 +36,10 @@ recipes : Recipe[]=[
         // country: '',
         // bookmarked:''
 
-  searchText = '';
-  characters = [
-    'Ant-Man',
-    'Aquaman',
-    'Asterix',
-    'The Atom',
-    'The Avengers',
-    'Batgirl',
-    'Batman',
-    'Batwoman',
-  ]
-  
+  searchTerm = '';
+  countries: Country[] = [];
+  term = '';
+
   
   constructor(private apiService: ApiService) { }
 
@@ -49,6 +48,7 @@ recipes : Recipe[]=[
       console.log(data);
       this.recipe = data;
     });
+
   }
 
 }
