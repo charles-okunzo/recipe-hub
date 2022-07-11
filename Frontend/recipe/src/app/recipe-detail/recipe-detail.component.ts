@@ -11,7 +11,10 @@ import { FilterPipe } from '../filter.pipe';
 })
 export class RecipeDetailComponent implements OnInit {
 recipe : any;
-        
+selectedRecipe!: Recipe;
+recipes : Recipe[]=[
+  new Recipe('sukuma','salad',2,2,10,'kales','add oil','John',4,'Uganda',false)
+]     
         id = ''
         recipe_name = ''
         // dish_type:'',
