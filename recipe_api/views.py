@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets, routers
 from django.contrib.auth.models import User
-from recipe_api.models import Profile, Recipe
-from recipe_api.serializers import ProfileSerializer, RecipeSerializer, UserSerializer
+from recipe_api.models import Bookmark, Profile, Rating, Recipe
+from recipe_api.serializers import BookmarkSerializer, ProfileSerializer, RatingSerializer, RecipeSerializer, UserSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -62,3 +62,19 @@ class ProfileViewset(viewsets.ModelViewSet):
         if self.request.user.is_authenticated:
             serializer.save(posted_by = self.request.user)
 
+class BookmarkViewSet(viewsets.ModelViewSet):
+    queryset = Bookmark.objects.all()
+    serializer_class = BookmarkSerializer
+
+    def perform_update(self, serializer):
+        if self.request.user.is_authenticated:
+            serializer.save(posted_by = self.request.user)
+
+
+class RatingViewSet(viewsets.ModelViewSet):
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
+
+    def perform_update(self, serializer):
+        if self.request.user.is_authenticated:
+            serializer.save(posted_by = self.request.user)
