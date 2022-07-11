@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    profile = serializers.HyperlinkedRelatedField(view_name='profile-detail', read_only=True)
     class Meta:
         model = User
         fields = (
@@ -14,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
             'email',
             'password',
             'url',
+            'profile'
         )
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 

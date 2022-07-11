@@ -1,5 +1,5 @@
 run:
-	python3 manage.py runserver 8000
+	python3 manage.py runserver 9000
 
 
 shell:

@@ -28,11 +28,41 @@ class Recipe(models.Model):
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_owner')
     ratings = models.PositiveIntegerField(null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
-    bookmarked = models.BooleanField(default=False)
+    
+
+
+    @property
+    def average_rating(self):
+        ...
 
 
     def __str__(self):
         return self.recipe_name
+
+
+class Bookmark(models.Model):
+    bookmarked = models.BooleanField(default=False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='bookmarked')
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='bookmarked')
+
+    @receiver(post_save, sender=Recipe)
+    def create_rating(sender, instance, created, **kwargs):
+        if created:
+            Recipe.objects.create(user=instance.user, recipe=instance)
+        instance.bookmarked.save()
+
+
+class Rating(models.Model):
+    ratings = models.PositiveIntegerField(default=0, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='rating')
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='rating')
+
+    @receiver(post_save, sender=Recipe)
+    def create_rating(sender, instance, created, **kwargs):
+        if created:
+            Recipe.objects.create(user=instance.user, recipe=instance)
+        instance.rating.save()
+
 
 
 class Profile(models.Model):
