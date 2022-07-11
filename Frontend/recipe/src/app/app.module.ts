@@ -14,6 +14,9 @@ import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FilterPipe } from './filter.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 
 
 
@@ -30,8 +33,7 @@ import { FilterPipe } from './filter.pipe';
     RecipeShareFormComponent,
     RecipeDetailComponent,
     ProfileComponent,
-    FilterPipe,
-   
+
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { FilterPipe } from './filter.pipe';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule
     // RouterModule,  
     
   ],

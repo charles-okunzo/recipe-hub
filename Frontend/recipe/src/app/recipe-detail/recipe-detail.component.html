@@ -6,7 +6,7 @@
             <div class="center mt-5">
                 <div class="row">
                     <div class="container">
-                        <h3 class="text-center">{{recipe.dish_type|uppercase}}</h3>
+                        <h3 class="text-center">{{recipe.dish_type}}</h3>
                         <div class="one mt-3">
                             <div class="container">
                                 <div class="row">
@@ -14,10 +14,10 @@
                                         <img src="{{recipe.image}}" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-8">
-                                    <h2>{{recipe.recipe_name|uppercase}}</h2>
+                                    <h2>{{recipe.recipe_name}}</h2>
                                     <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>
                                     <br/>
-                                    <p>Author : {{recipe.posted_by.username|titlecase}}</p>
+                                    <p>Author : {{recipe.posted_by.username}}</p>
                                     <p>Prep time : {{recipe.prep_time_mins}} mins</p>
                                     <p>Cook time : {{recipe.cooking_time_mins}} mins</p>
                                     <p>Serves : {{recipe.no_of_servings}}</p>
@@ -69,19 +69,3 @@
     </div>
 </div>
 
-<div class="content" role="main">
-    <div class="card">
-      <div class="form-group">
-        <label for="search-text">Search Text</label>
-        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
-          [(ngModel)]="searchText" placeholder="Enter text to search" 
-          autofocus>
-      </div>
-      <ul class="list-group list-group-flush">
-        <!-- results of ngFor is passed to appFilter with argument searchText -->
-        <li class="list-group-item" *ngFor="let c of characters | filter: searchText">
-          {{c}}
-        </li>
-      </ul>
-    </div>
-  </div>
