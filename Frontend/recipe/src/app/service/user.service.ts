@@ -63,6 +63,7 @@ export class UserService {
   logout(){
     localStorage.removeItem('access_token')
     localStorage.removeItem('expiresAt')
+    localStorage.removeItem('refresh_token')
   }
 
   refreshToken(){
