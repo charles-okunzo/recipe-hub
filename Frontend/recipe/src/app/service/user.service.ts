@@ -67,7 +67,7 @@ export class UserService {
   }
 
   refreshToken(){
-    if (moment().isBetween(this.getExpiration().subtract(12, 'hours'), this.getExpiration())){
+    if (moment().isBetween(this.getExpiration().subtract(1, 'days'), this.getExpiration())){
       this.http.post<refreshResponse>(`${this.BASEURL}token/refresh/`, {refresh : this.tokenRefresh}).pipe(
         tap(response => this.setSession(response.access)),
         shareReplay(),
@@ -99,6 +99,10 @@ export class UserService {
     const userId = decordedUser.user_id
 
     return this.http.get<User>(`${this.BASEURL}api/users/${userId}`)
+  }
+
+  getUserProfile(profileUrl:string){
+    return this.http.get<Profile>(profileUrl)
   }
 
 }
@@ -169,6 +173,7 @@ interface User{
   first_name: string,
   last_name: string,
   email: string,
+  profile:string
 }
 
 interface Profile{

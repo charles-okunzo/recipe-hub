@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   bio!:['']
 
   currentUser:any;
+  userProfile:any;
      
     
 
@@ -33,12 +34,14 @@ export class ProfileComponent implements OnInit {
     });
 
     this.userService.getCurrentUser().subscribe({
-      next: userdata =>{
+      next: (userdata) =>{
         this.currentUser=userdata
-        console.log(userdata.first_name)
-        console.log(userdata.email)
-        console.log(userdata.username)
-        console.log(userdata.last_name)
+        this.userService.getUserProfile(userdata.profile).subscribe(
+          profile =>{
+            this.userProfile=profile
+            console.log(profile.id)
+          }
+        )
       }
     })
     
