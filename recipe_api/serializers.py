@@ -30,8 +30,8 @@ class UserSerializer(serializers.ModelSerializer):
             user.save()
             return user
 
-class RecipeSerializer(serializers.HyperlinkedModelSerializer):
-    posted_by = UserSerializer()
+class RecipeSerializer(serializers.ModelSerializer):
+    # posted_by = UserSerializer()
     bookmarked = serializers.HyperlinkedRelatedField(many=True, view_name='bookmarked-detail', read_only=True)
     rating = serializers.HyperlinkedRelatedField(many=True, view_name='rating-detail', read_only=True)
     class Meta:
@@ -57,7 +57,7 @@ class RecipeSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    # user = UserSerializer()
     class Meta:
         model = Profile
         fields = (
