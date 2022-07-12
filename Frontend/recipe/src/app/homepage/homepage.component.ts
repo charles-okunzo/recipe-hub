@@ -5,23 +5,20 @@ import { RecipeApiService } from '../service/recipe-api.service';
 @Component({
   selector: 'homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent implements OnInit {
+  recipes!: any;
 
-  recipes :any = []
-  constructor(private recipeApiService: RecipeApiService) { }
+  constructor(private recipeApiService: RecipeApiService) {}
 
   ngOnInit(): void {
-    this.recipeApiService.getRecipes().subscribe(
-      data => {
-        console.log(data)
-        this.recipes=data
+    this.recipeApiService.getRecipes().subscribe({
+      next: (res) => {
+        this.recipes = res;
+        console.log(this.recipes);
       },
-      err=>{
-        console.log(err)
-      }
-    )
+      error: (err) => console.log(err),
+    });
   }
-
 }

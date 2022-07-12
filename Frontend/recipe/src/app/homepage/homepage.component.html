@@ -179,11 +179,15 @@
       </p>
     </div>
     <div class="row popular-recipes mb-3">
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
+      <div
+        *ngFor="let recipe of recipes.slice(0, 6)"
+        class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3"
+      >
         <div class="image">
           <img
             class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
+            style="width: 100%"
+            src="https://res.cloudinary.com/daiff3l9v/{{ recipe.image }}"
             alt=""
           />
           <div class="circle">
@@ -196,10 +200,9 @@
           </div>
         </div>
         <div class="popular-card-content">
-          <h4 routerLink="/recipe-detail">Vegetable Kebab</h4>
+          <h4 routerLink="/recipe-detail">{{ recipe.recipe_name }}</h4>
           <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
+            {{ recipe.instructions | summary }}
           </p>
         </div>
         <div class="popular-user-content d-flex border-top border-bottom pt-2">
@@ -210,48 +213,12 @@
             alt=""
           />
           <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
+            <h5>{{ recipe.posted_by.username }}</h5>
             <p>Star Chef</p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
-        <div class="image">
-          <img
-            class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
-            alt=""
-          />
-          <div class="circle">
-            <div class="inner-circle">
-              <div class="mydiv">
-                <h2>5</h2>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="popular-card-content">
-          <h4>Vegetable Kebab</h4>
-          <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
-          </p>
-        </div>
-        <div class="popular-user-content d-flex border-top border-bottom pt-2">
-          <img
-            class="img-fluid rounded-circle"
-            style="width: 45px; height: 45px; margin-right: 2rem"
-            src="../../assets/images/profile.jpg"
-            alt=""
-          />
-          <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
-            <p>Star Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
+      <!-- <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
         <div class="image">
           <img
             class="img-fluid rounded"
@@ -395,6 +362,42 @@
           </div>
         </div>
       </div>
+      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
+        <div class="image">
+          <img
+            class="img-fluid rounded"
+            src="../../assets/images/popular.jpg"
+            alt=""
+          />
+          <div class="circle">
+            <div class="inner-circle">
+              <div class="mydiv">
+                <h2>5</h2>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popular-card-content">
+          <h4>Vegetable Kebab</h4>
+          <p>
+            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
+            elusmod tempor
+          </p>
+        </div>
+        <div class="popular-user-content d-flex border-top border-bottom pt-2">
+          <img
+            class="img-fluid rounded-circle"
+            style="width: 45px; height: 45px; margin-right: 2rem"
+            src="../../assets/images/profile.jpg"
+            alt=""
+          />
+          <div class="popular-user-name">
+            <h5>Nicole Reyes</h5>
+            <p>Star Chef</p>
+          </div>
+        </div>
+      </div> -->
     </div>
   </section>
   <app-footer></app-footer>
