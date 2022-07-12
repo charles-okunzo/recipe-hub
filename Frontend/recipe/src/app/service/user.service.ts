@@ -24,14 +24,13 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   //stores decoded user data and access token in the local storage
-  private setSession(token:string) {
+  private setSession(token: string) {
     const payload = jwtDecode<jwtPayload>(token);
     const expitesAt = moment.unix(payload.exp);
 
     localStorage.setItem('access_token', token);
     localStorage.setItem('expiresAt', JSON.stringify(expitesAt.valueOf()));
   }
-
 
   //getter method--> access token from local storage
   get token() {
@@ -44,14 +43,15 @@ export class UserService {
   //method for registering users
 
   registerUser(userData: any): Observable<logInResponse> {
-    return this.http.post<logInResponse>(`${this.apiRoot}registration/`, userData).
-      pipe(
-        tap(response => {
+    return this.http
+      .post<logInResponse>(`${this.apiRoot}registration/`, userData)
+      .pipe(
+        tap((response) => {
           this.setSession(response.access_token);
-          localStorage.setItem('refresh_token',response.refresh_token)
+          localStorage.setItem('refresh_token', response.refresh_token);
         }),
         shareReplay()
-    )
+      );
   }
 
   //disregard this user login method
@@ -71,7 +71,7 @@ export class UserService {
       .pipe(
         tap((response) => {
           this.setSession(response.access_token);
-          localStorage.setItem('refresh_token',response.refresh_token);
+          localStorage.setItem('refresh_token', response.refresh_token);
         }),
         shareReplay()
       );
@@ -86,15 +86,14 @@ export class UserService {
   refreshToken() {
     if (
       moment().isBetween(
-        this.getExpiration().subtract(1,'day'),
+        this.getExpiration().subtract(1, 'day'),
         this.getExpiration()
       )
     ) {
       return this.http
-        .post<Refresh>(
-          this.apiRoot.concat('token/refresh/'),
-         { Refresh : this.refresh_token}
-        )
+        .post<Refresh>(this.apiRoot.concat('token/refresh/'), {
+          refresh: this.refresh_token,
+        })
         .pipe(
           tap((response) => {
             this.setSession(response.access),
@@ -122,7 +121,6 @@ export class UserService {
     return !this.isLoggedIn();
   }
 }
-
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -174,8 +172,8 @@ interface logInResponse {
   refresh_token: string;
   user: object;
 }
-interface Refresh{
-  access: string,
-  refresh: string,
-  access_token_expiration:string
+interface Refresh {
+  access: string;
+  refresh: string;
+  access_token_expiration: string;
 }
