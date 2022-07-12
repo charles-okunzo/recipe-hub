@@ -39,6 +39,7 @@ class RecipeSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'id',
             'recipe_name',
+            'decription',
             'dish_type',
             'prep_time_mins',
             'no_of_servings',

@@ -17,6 +17,7 @@ DISH_TYPE_CHOICES = {
 
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=100)
+    description = models.TextField(null=True)
     dish_type = models.CharField(max_length=100, choices=DISH_TYPE_CHOICES)
     prep_time_mins = models.PositiveIntegerField()
     no_of_servings = models.PositiveIntegerField()
