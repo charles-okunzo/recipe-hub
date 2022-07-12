@@ -14,6 +14,7 @@ import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuards, AuthInterceptor } from './service/user.service';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -30,6 +31,7 @@ import { AuthGuards, AuthInterceptor } from './service/user.service';
     RecipeShareFormComponent,
     RecipeDetailComponent,
     ProfileComponent,
+    AboutUsComponent,
    
   ],
   imports: [

@@ -8,6 +8,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeShareFormComponent } from './recipe-share-form/recipe-share-form.component';
 import { AuthGuards } from './service/user.service';
 import { SignupComponent } from './signup/signup.component';
+import { AboutUsComponent } from './about-us/about-us.component'
 
 const routes: Routes = [
   {path:'', component:LandingPageComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'recipe-detail', component:RecipeDetailComponent, canActivate:[AuthGuards]},
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
+  {path:'about-us', component:AboutUsComponent},
   {path:'',redirectTo:'',pathMatch:'full'},
 ];
 
