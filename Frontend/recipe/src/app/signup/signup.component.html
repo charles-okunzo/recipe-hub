@@ -9,7 +9,9 @@
             <h1>Sign Up</h1>
             <h6 class="text-muted">Hello! Register to share your cooking experience...</h6>
           </div>
-               
+          <div class="alert alert-danger" *ngIf="invalid">
+            <p>{{invalid}}</p>
+          </div>
                 <form [formGroup]="signupForm" (ngSubmit)="registerUser()">
                     <div class="mb-3">
                       <label for="username" class="form-label">Username</label>
@@ -44,9 +46,17 @@
                       <!-- <p>This field is a required field</p> -->
                     </div>
                     <div class="mb-3">
-                        <label for="passwordconfirm" class="form-label">Password Confirmation</label>
-                        <input formControlName='password2'type="password" id="passwordconfirm" minlength="8" class="form-control" placeholder="*********">
-                      </div>
+                        <label for="passwordconfirm" class="form-label">Confirm Password</label>
+                        <input formControlName='password2'type="password" name="password" id="passwordconfirm" minlength="8" class="form-control" placeholder="*********" required>
+                    </div>
+
+                    <div class="alert alert-danger" *ngIf="error_password">
+                      <p>{{ error_password }}</p>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
+                      <p>Password must not be less that 8 characters</p>
+                      <!-- <p>This field is a required field</p> -->
+                    </div>
                     
                     <button type="submit" [disabled]="signupForm.invalid" class="btn btn-danger fw-bold">Sign Up</button>
                </form>

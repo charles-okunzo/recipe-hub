@@ -12,9 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {path:'', component:LandingPageComponent},
   {path:'home', component:HomepageComponent, canActivate:[AuthGuards]},
-  {path:'profile', component:ProfileComponent},
-  {path:'recipe-share', component:RecipeShareFormComponent},
-  {path:'recipe-detail', component:RecipeDetailComponent},
+  {path:'profile', component:ProfileComponent, canActivate:[AuthGuards]},
+  {path:'recipe-share', component:RecipeShareFormComponent, canActivate:[AuthGuards]},
+  {path:'recipe-detail', component:RecipeDetailComponent, canActivate:[AuthGuards]},
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'',redirectTo:'',pathMatch:'full'},

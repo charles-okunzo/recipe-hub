@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
         this.userService.getUserProfile(userdata.profile).subscribe(
           profile =>{
             this.userProfile=profile
-            console.log(profile.id)
+            console.log(profile)
           }
         )
       }

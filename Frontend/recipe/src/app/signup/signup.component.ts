@@ -32,23 +32,25 @@ export class SignupComponent implements OnInit {
     error_username:any
     error_email:any
     error_password:any
+    invalid:any
 
    
 
     registerUser(){
-      this.userService.registerUser(this.signupForm.value).subscribe(
-        resp => {
+      this.userService.registerUser(this.signupForm.value).subscribe({
+        next:resp => {
           alert(`User has been created successfuly!`)
           this.signupForm.reset();
           this.router.navigate(['/','login']);
         },
-        err =>{
+        error:err =>{
           this.error_username = err['error'].username
           this.error_email = err['error'].email
           this.error_password = err['error'].password
+          this.invalid = err['error'].non_field_errors
           console.table('error', err)
         }
-      )
+      })
       console.log(this.signupForm.value)
     }
 

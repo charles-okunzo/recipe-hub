@@ -8,7 +8,6 @@ export interface Recipe {
             ingredients:string,
             instructions:string,
             date_created:Date,
-            posted_by:string,
             ratings:number,
             country:string,
             bookmarked:boolean

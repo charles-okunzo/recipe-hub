@@ -39,7 +39,7 @@ export class UserService {
 
   //method for registering users
   registerUser(userData:any): Observable<any> {
-    return this.http.post(`${this.BASEURL}api/users/`, userData);
+    return this.http.post(`${this.BASEURL}auth/registration/`, userData);
   }
 
   DJANGO_SERVER: string = "http://127.0.0.1:8000";
