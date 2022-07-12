@@ -53,7 +53,6 @@ class RecipeSerializer(serializers.HyperlinkedModelSerializer):
             'ingredients',
             'instructions',
             'date_created',
-            'posted_by',
             'ratings',
             'country',
             'bookmarked',

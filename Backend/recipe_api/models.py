@@ -25,7 +25,7 @@ class Recipe(models.Model):
     ingredients = models.TextField()
     instructions = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
-    posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_owner')
+    posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_owner', null=True, blank=True)
     ratings = models.PositiveIntegerField(null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
     bookmarked = models.BooleanField(default=False)

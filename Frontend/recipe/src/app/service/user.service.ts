@@ -68,7 +68,7 @@ export class UserService {
 
   refreshToken(){
     if (moment().isBetween(this.getExpiration().subtract(1, 'days'), this.getExpiration())){
-      this.http.post<refreshResponse>(`${this.BASEURL}token/refresh/`, {refresh : this.tokenRefresh}).pipe(
+      this.http.post<refreshResponse>(`${this.BASEURL}auth/token/refresh/`, {refresh : this.tokenRefresh}).pipe(
         tap(response => this.setSession(response.access)),
         shareReplay(),
       ).subscribe()

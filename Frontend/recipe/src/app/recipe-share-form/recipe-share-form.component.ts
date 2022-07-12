@@ -10,7 +10,7 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./recipe-share-form.component.css']
 })
 export class RecipeShareFormComponent implements OnInit {
-  currentUser!: object;
+  currentUser!: any;
   constructor(private recipeApiService: RecipeApiService, private userService:UserService) { }
     //recipe array instance of type Recipe inteface
     recipes!:Recipe[]
@@ -25,7 +25,6 @@ export class RecipeShareFormComponent implements OnInit {
     ingredients : new FormControl(''),
     instructions: new FormControl(''),
     date_created : new FormControl(''),
-    posted_by : new FormControl(this.currentUser),
     country : new FormControl('')
 
   })
@@ -50,7 +49,7 @@ export class RecipeShareFormComponent implements OnInit {
     this.userService.getCurrentUser().subscribe(
       user =>{
         this.currentUser=user
-        console.log(user)
+        console.log(this.currentUser)
       }
     )
   }
