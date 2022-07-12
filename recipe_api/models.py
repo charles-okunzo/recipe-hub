@@ -56,7 +56,7 @@ class Rating(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_img = CloudinaryField('profile_imgs', default = 'https://res.cloudinary.com/daiff3l9v/image/upload/v1657613809/avatar_zzuoot.png')
+    profile_img = CloudinaryField('profile_imgs', default = 'v1657613809/avatar_zzuoot.png')
     bio = models.TextField(blank=True, null=True)
     city = models.CharField(max_length=100, blank=True)
     country = models.CharField(max_length=100, blank=True)
