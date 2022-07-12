@@ -36,19 +36,19 @@ class RecipeViewset(viewsets.ModelViewSet):
     # def perform_create(self, serializer):
     #     serializer.save(posted_by = self.request.user)
 
-    def destroy(self, request, *args, **kwargs):
-        recipe = self.get_object()
+    # def destroy(self, request, *args, **kwargs):
+    #     recipe = self.get_object()
 
-        user = request.user
-        if recipe.posted_by == user:
-            recipe.delete()
-            return Response(data='delete success')
-        return Response(data='permission denied')
+    #     user = request.user
+    #     if recipe.posted_by == user:
+    #         recipe.delete()
+    #         return Response(data='delete success')
+    #     return Response(data='permission denied')
         
     #add more info i.e user before updating
-    def perform_update(self, serializer):
-        if self.request.user.is_authenticated:
-            serializer.save(posted_by = self.request.user)
+    # def perform_update(self, serializer):
+    #     if self.request.user.is_authenticated:
+    #         serializer.save(posted_by = self.request.user)
 
 class ProfileViewset(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
