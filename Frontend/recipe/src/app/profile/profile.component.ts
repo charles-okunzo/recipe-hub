@@ -9,7 +9,7 @@ import { UserService } from '../service/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  DJANGO_SERVER = 'http://127.0.0.1:8000'
+  DJANGO_SERVER = 'http://127.0.0.1:8000/'
   form!: FormGroup;
   response: any;
   imageURL: string | undefined;
@@ -42,16 +42,16 @@ export class ProfileComponent implements OnInit {
     const formData = new FormData();
     // formData.append('file', this.form.get('profile').value);
 
-    this.userService.upload(formData).subscribe(
-      (res) => {
-        this.response = res;
-        this.imageURL = `${this.DJANGO_SERVER}${res.file}`;
-        console.log(res);
-        console.log(this.imageURL);
-      },
-      (err) => {  
-        console.log(err);
-      }
-    );
+    // this.userService.upload(formData).subscribe(
+    //   (res) => {
+    //     this.response = res;
+    //     this.imageURL = `${this.DJANGO_SERVER}${res.file}`;
+    //     console.log(res);
+    //     console.log(this.imageURL);
+    //   },
+    //   (err) => {  
+    //     console.log(err);
+    //   }
+    // );
   }
 }

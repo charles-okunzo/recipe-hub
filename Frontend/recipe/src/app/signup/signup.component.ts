@@ -38,7 +38,6 @@ export class SignupComponent implements OnInit {
     registerUser(){
       this.userService.registerUser(this.signupForm.value).subscribe(
         resp => {
-          alert(`User has been created successfuly!`)
           this.signupForm.reset();
           this.router.navigate(['/','login']);
         },
