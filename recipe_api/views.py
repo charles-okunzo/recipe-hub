@@ -33,8 +33,8 @@ class RecipeViewset(viewsets.ModelViewSet):
         return queryset
 
     #add more information before creating a user
-    def perform_create(self, serializer):
-        serializer.save(posted_by = self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(posted_by = self.request.user)
 
     def destroy(self, request, *args, **kwargs):
         recipe = self.get_object()
