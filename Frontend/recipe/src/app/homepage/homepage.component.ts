@@ -8,7 +8,8 @@ import { RecipeApiService } from '../service/recipe-api.service';
   styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent implements OnInit {
-  recipes!: any;
+  recipes!: Recipe[];
+  featured!: Recipe;
 
   constructor(private recipeApiService: RecipeApiService) {}
 
@@ -16,7 +17,8 @@ export class HomepageComponent implements OnInit {
     this.recipeApiService.getRecipes().subscribe({
       next: (res) => {
         this.recipes = res;
-        console.log(this.recipes);
+        this.featured = res[Math.floor(Math.random() * res.length)];
+        console.log(this.featured);
       },
       error: (err) => console.log(err),
     });

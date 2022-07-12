@@ -94,7 +94,7 @@
   color: #fff;
 }
 .popular-recipes .recipe-box .image .circle .inner-circle {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .popular-card-content h4 {

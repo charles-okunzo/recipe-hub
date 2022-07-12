@@ -67,9 +67,9 @@
     <div class="featured row">
       <div class="col-md-6">
         <img
-          class="img-fluid"
-          style="width: 100%"
-          src="../../assets/images/s10.png"
+          class="img-fluid rounded-circle"
+          style="height: 30rem; width: 100%"
+          src="https://res.cloudinary.com/daiff3l9v/{{ featured.image }}"
           alt=""
         />
       </div>
@@ -78,7 +78,7 @@
           <div class="featured-text">
             <h3>Featured Recipe</h3>
             <div class="inner-div d-flex align-items-center">
-              <h2>Quick Fresh Blueberry Salad</h2>
+              <h2>{{ featured.recipe_name }}</h2>
               <div class="circle">
                 <div class="inner-circle" style="background-color: #d52b32">
                   <div class="mydiv text-white">
@@ -102,12 +102,12 @@
                   alt=""
                 />
                 <div class="d-flex flex-column">
-                  <span class="fw-bold">Recipe by:</span>
-                  <span>Francis Woods</span>
+                  <span class="fw-bold">Recipe by: </span>
+                  <span>{{ featured.posted_by.username }}</span>
                 </div>
               </div>
               <div class="time border-end border-dark" style="flex-basis: 25%">
-                <p>25 minutes</p>
+                <p>{{ featured.prep_time_mins }} minutes</p>
               </div>
               <div class="level">
                 <p>Easy</p>
@@ -115,12 +115,12 @@
             </div>
             <div class="description my-3">
               <p class="fs-5">
-                Blueberry salad is a great way to use up leftover chicken
-                breast. With great salad, dinner is quick and you don’t have to
-                turn on the oven
+                {{ featured.description | summary }}
               </p>
             </div>
-            <button class="btn btn-outline-danger">View Recipe Details</button>
+            <button class="btn btn-outline-danger" routerLink="/recipe-detail">
+              View Recipe Details
+            </button>
           </div>
         </div>
       </div>
@@ -130,22 +130,22 @@
     <div class="container">
       <h2 class="pb-2" style="color: #d52b32">About Us</h2>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12 col-lg-6 col-sm-12">
           <h2 class="pb-3" style="font-size: 2.3rem; font-weight: bold">
             Learn More About Us and Our Community
           </h2>
           <p style="font-size: 1.2rem">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            congue accumsan mi et porttitor. Proin malesuada sollicitudin
-            gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            We as the Recipe Hub are committed to bring all your favorite
+            recipes to your own reach for free and you can also share your
+            favorite recipe to others for them to enjoy too thanks.
             <br />
             <br />
-            Suspendisse congue accumsan mi et porttitor. Proin malesuada
-            sollicitudin gravida.
+            Feel free to reach us out on our social media profiles and if
+            anything please let us know in advance we will rectify.
           </p>
           <button class="btn btn-danger">View our Forums</button>
         </div>
-        <div class="col-md-6 d-flex" style="gap: 0.5rem">
+        <div class="col-md-12 col-lg-6 col-sm-12 d-flex" style="gap: 0.5rem">
           <div class="img1 align-self-center">
             <div>
               <img class="img-fluid" src="../../assets/images/r1.jpg" alt="" />
@@ -180,7 +180,8 @@
     </div>
     <div class="row popular-recipes mb-3">
       <div
-        *ngFor="let recipe of recipes.slice(0, 6)"
+        routerLink="/recipe-detail"
+        *ngFor="let recipe of recipes.reverse() | slice: 0:6"
         class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3"
       >
         <div class="image">
@@ -202,7 +203,7 @@
         <div class="popular-card-content">
           <h4 routerLink="/recipe-detail">{{ recipe.recipe_name }}</h4>
           <p>
-            {{ recipe.instructions | summary }}
+            {{ recipe.description | summary }}
           </p>
         </div>
         <div class="popular-user-content d-flex border-top border-bottom pt-2">
