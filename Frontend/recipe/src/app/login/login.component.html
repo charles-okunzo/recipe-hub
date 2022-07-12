@@ -1,63 +1,67 @@
 <div class="container min-vh-100" style="display: grid; place-items:center;">
   <div class="row justify-content-center py-4">
-    <div class="col-lg-3 login-img">
-      <img src="../../assets/images/st.jpeg" alt="Login img" class="img-fluid"/>
-    </div>
-    <div class="col-lg-5">
-      <div class="text-center mb-4">
-        <h1>Log In</h1>
-        <h6>Welcome back! Please login to your account</h6>
+    <div class="col-lg-8">
+      <div class="row formbg">
+        <div class="col-lg-5 login-img">
+          <img src="../../assets/images/st.jpeg" alt="Login img" class="img-fluid"/>
+        </div>
+        <div class="col-lg-7">
+          <div class="text-center mb-4">
+            <h1 class="fw-bold">Log In</h1>
+            <h6>Welcome back! Please login to your account</h6>
+          </div>
+          <div class="alert alert-danger" *ngIf="invalid">
+            <p>Invalid username or password</p>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="logInUser()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control"
+                placeholder="username@gmail.com"
+                formControlName="username"
+                required
+              />
+            </div>
+    
+            <div class="alert alert-danger" *ngIf="error_username">
+              <p>{{ error_username }}</p>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="********"
+                formControlName="password"
+                required
+                minlength="8"
+                
+              />
+            </div>
+    
+            <div class="alert alert-danger" *ngIf="error_password">
+              <p>{{ error_password }}</p>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+              <label class="form-check-label" for="exampleCheck1"
+                >Remember me? </label
+              ><span style="float: right">Forgot Password?</span>
+            </div>
+            <button type="submit" class="btn btn-danger fw-bold mb-3">Log In</button>
+            <br />
+            <small class="text-muted">New User?
+              <a routerLink="/signup"
+              style="text-decoration: none;"><span style="color: #d52b32;"> Sign Up</span>
+              </a
+            ></small>
+          </form>
+        </div>
       </div>
-      <div class="alert alert-danger" *ngIf="invalid">
-        <p>Invalid username or password</p>
-      </div>
-      <form [formGroup]="loginForm" (ngSubmit)="logInUser()">
-        <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
-          <input
-            type="text"
-            id="username"
-            class="form-control"
-            placeholder="username@gmail.com"
-            formControlName="username"
-            required
-          />
-        </div>
-
-        <div class="alert alert-danger" *ngIf="error_username">
-          <p>{{ error_username }}</p>
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input
-            type="password"
-            id="password"
-            class="form-control"
-            placeholder="********"
-            formControlName="password"
-            required
-            minlength="8"
-            
-          />
-        </div>
-
-        <div class="alert alert-danger" *ngIf="error_password">
-          <p>{{ error_password }}</p>
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1"
-            >Remember me? </label
-          ><span style="float: right">Forgot Password?</span>
-        </div>
-        <button type="submit" class="btn btn-danger fw-bold mb-3">Log In</button>
-        <br />
-        <small class="text-muted">New User?
-          <a routerLink="/signup"
-          style="text-decoration: none;"><span style="color: #d52b32;"> Sign Up</span>
-          </a
-        ></small>
-      </form>
     </div>
   </div>
 </div>

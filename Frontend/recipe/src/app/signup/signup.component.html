@@ -1,78 +1,76 @@
 <div class="container min-vh-100" style="display: grid; place-items:center;">
     <div class="row justify-content-center py-4"> 
-        <div class="col-lg-3 login-img">
-          <img src="../../assets/images/my.jpeg" alt="Sign up image" class="img-fluid">
-        </div>
-        <div class="col-lg-6">
-            
-          <div class="text-center mb-4">
-            <h1>Sign Up</h1>
-            <h6 class="text-muted">Hello! Register to share your cooking experience...</h6>
+        
+      <div class="col-lg-9">
+        <div class="row formbg">
+          <div class="col-lg-5 login-img">
+            <img src="../../assets/images/my.jpeg" alt="Sign up image" class="img-fluid">
           </div>
-          <div class="alert alert-danger" *ngIf="invalid">
-            <p>{{invalid}}</p>
-          </div>
-                <form [formGroup]="signupForm" (ngSubmit)="registerUser()">
-                    <div class="mb-3">
-                      <label for="username" class="form-label">Username</label>
-                      <input formControlName='username'type="text" id="username" class="form-control" placeholder="Username" required>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="error_username">
-                      <p>{{ error_username }}</p>
-                    </div>
-                    <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
-                      <p>This field is a required field</p>
-                    </div> -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input formControlName='email'type="text" id="email" class="form-control" placeholder="myemail@gmail.com" required>
+          <div class="col-lg-7">
+              
+            <div class="text-center mb-4">
+              <h1 class="fw-bold">Sign Up</h1>
+              <h6 class="text-muted">Hello! Register to share your cooking experience...</h6>
+            </div>
+            <div class="alert alert-danger" *ngIf="invalid">
+              <p>{{invalid}}</p>
+            </div>
+                  <form [formGroup]="signupForm" (ngSubmit)="registerUser()">
+                      <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input formControlName='username'type="text" id="username" class="form-control" placeholder="Username" required>
                       </div>
-                      <div class="alert alert-danger" *ngIf="error_email">
-                        <p>{{ error_email }}</p>
+                      <div class="alert alert-danger" *ngIf="error_username">
+                        <p>{{ error_username }}</p>
                       </div>
-                      <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
 
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input formControlName='email'type="text" id="email" class="form-control" placeholder="myemail@gmail.com" required>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="error_email">
+                          <p>{{ error_email }}</p>
+                        </div>
+                        
+                      <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input formControlName='password1' type="password" name="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
+                      </div>
+                      <div class="alert alert-danger" *ngIf="error_password1">
+                        <div *ngFor="let error of error_password1;">
+                          <p>{{ error }}</p>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="passwordconfirm" class="form-label">Confirm Password</label>
+                          <input formControlName='password2'type="password" name="password" id="passwordconfirm" minlength="8" class="form-control" placeholder="*********" required>
+                      </div>
+  
+                      <!-- <div class="alert alert-danger" *ngIf="error_password">
+                        <p>{{ error_password }}</p>
+                      </div> -->
+                      <!-- <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
+                        <p>Password must not be less that 8 characters</p>
                         <p>This field is a required field</p>
                       </div> -->
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input formControlName='password1' type="password" name="password" minlength="8" id="password" class="form-control" placeholder="*********" required>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="error_password">
-                      <p>{{ error_password }}</p>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
-                      <p>Password must not be less that 8 characters</p>
-                      <!-- <p>This field is a required field</p> -->
-                    </div>
-                    <div class="mb-3">
-                        <label for="passwordconfirm" class="form-label">Confirm Password</label>
-                        <input formControlName='password2'type="password" name="password" id="passwordconfirm" minlength="8" class="form-control" placeholder="*********" required>
-                    </div>
-
-                    <div class="alert alert-danger" *ngIf="error_password">
-                      <p>{{ error_password }}</p>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="signupForm.invalid && (signupForm.touched || signupForm.dirty)">
-                      <p>Password must not be less that 8 characters</p>
-                      <!-- <p>This field is a required field</p> -->
-                    </div>
-                    
-                    <button type="submit" [disabled]="signupForm.invalid" class="btn btn-danger fw-bold">Sign Up</button>
-               </form>
-            
-               <br>
-               <small class="text-muted">Already have an account?
-                <a routerLink="/login"
-                style="text-decoration: none;"><span style="color: #d52b32 ;"> Log In Now</span>
-                </a
-              ></small>
-
-            </div>
-
+                      
+                      <button type="submit" class="btn btn-danger fw-bold">Sign Up</button>
+                 </form>
+              
+                 <br>
+                 <small class="text-muted">Already have an account?
+                  <a routerLink="/login"
+                  style="text-decoration: none;"><span style="color: #d52b32 ;"> Log In Now</span>
+                  </a
+                ></small>
+  
+              </div>
         </div>
+      </div>
 
     </div>
+
+</div>
 
 
 

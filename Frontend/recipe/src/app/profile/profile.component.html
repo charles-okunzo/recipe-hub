@@ -13,7 +13,7 @@
             <div></div>
           </span>
           <span class="h2 fw-bold">{{ currentUser.username }}</span
-          ><span class="text-black-50" *ngIf="currentUser.email then email else default">
+          ><span class="text-black-50" *ngIf="currentUser.email; then email else default">
             </span>
               <ng-template #email>
                 <span>{{ currentUser.email }}</span>
@@ -22,17 +22,39 @@
               <ng-template #default>
                 <span>You have not updated email yet</span>
               </ng-template>
+
+              <span class="text-black-50" *ngIf="userProfile.mobile_no; then mobile_no else default2">
+              </span>
+                <ng-template #mobile_no>
+                  <span>{{ userProfile.mobile_no }}</span>
+                </ng-template>
+  
+                <ng-template #default2>
+                  <span>Mobile no. not updated yet!</span>
+                </ng-template>
           
-          <span class="">{{ City || Country }} </span>
-          <span class=""
-            ><p>{{ bio }}</p>
-          </span>
+              <span class="text-black-50" *ngIf="userProfile.bio; then bio else default1">
+              </span>
+                <ng-template #bio>
+                  <span>{{ userProfile.bio }}</span>
+                </ng-template>
+  
+                <ng-template #default1>
+                  <span>User bio not updated yet!</span>
+                </ng-template>
+                
+                <span>
+                  {{userProfile.city}}
+                </span>
+                <span>
+                  {{userProfile.country}}
+                </span>
         </div>
       </div>
       <div class="col-md-6 border-right">
         <div class="p-3 py-5">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="text-right"><strong>PROFILE</strong></h4>
+            <h4 class="text-right" style="color: #D52B32;"><strong>UPDATE PROFILE</strong></h4>
           </div>
 
           <form novalidate>

@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
     }
     error_username:any
     error_email:any
-    error_password:any
+    error_password1:any
     invalid:any
 
    
@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
         error:err =>{
           this.error_username = err['error'].username
           this.error_email = err['error'].email
-          this.error_password = err['error'].password
+          this.error_password1 = err['error'].password1
           this.invalid = err['error'].non_field_errors
           console.table('error', err)
         }
