@@ -10,7 +10,9 @@
 .fa {
   font-size: 1.7rem;
 }
-
+.box i {
+  color: #fa4269;
+}
 .text h1 {
   font-size: 4rem;
   font-weight: bolder;
