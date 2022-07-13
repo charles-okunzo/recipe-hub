@@ -11,8 +11,8 @@ export class RecipeApiService {
   constructor(private http: HttpClient) { }
   RECIPE_URL='https://rec1pe-api.herokuapp.com/api/recipes/'
 
-  getRecipes():Observable<Recipe>{
-    return this.http.get<Recipe>(this.RECIPE_URL)
+  getRecipes():Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(this.RECIPE_URL)
   }
 
   postRecipes(recipeFormData:any):Observable<Recipe>{

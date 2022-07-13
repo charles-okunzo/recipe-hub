@@ -10,7 +10,9 @@
 .fa {
   font-size: 1.7rem;
 }
-
+.box i {
+  color: #fa4269;
+}
 .text h1 {
   font-size: 4rem;
   font-weight: bolder;
@@ -94,7 +96,7 @@
   color: #fff;
 }
 .popular-recipes .recipe-box .image .circle .inner-circle {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .popular-card-content h4 {
@@ -131,4 +133,8 @@
     font-size: 3rem;
     font-weight: bolder;
   }
+}
+
+.border-end{
+  border-color: rgba(0, 0, 0, 0.3) !important;
 }

@@ -1,6 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Recipe Hub</a>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
+  <div class="container">
+    <a href="/home" class="navbar-brand">
+      <i class="fas fa-blog"></i> &nbsp; Recipe Hub
+    </a>
+
     <button
       class="navbar-toggler"
       type="button"
@@ -12,23 +15,21 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="d-flex me-auto">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      <ul class="navbar-nav mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mx-3">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/recipe-share">Popular recipes</a>
+          <a class="nav-link active" routerLink="/recipe-share">Post</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item mx-3">
+          <a routerLink="/about-us" class="nav-link active"> About </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="" class="nav-link active"> Contact </a>
+        </li> -->
+        <li class="nav-item dropdown mx-3">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link active dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -45,7 +46,9 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item logout" (click)="logout()">Logout</a></li>
+            <li>
+              <a class="dropdown-item" (click)="onLogout()">Logout</a>
+            </li>
           </ul>
         </li>
       </ul>

@@ -15,7 +15,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuards, AuthInterceptor } from './service/user.service';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { NgxUiLoaderModule } from 'ngx-ui-loader'
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { SummaryPipe } from './pipes/summary.pipe'
 
 
 
@@ -33,6 +34,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader'
     RecipeDetailComponent,
     ProfileComponent,
     AboutUsComponent,
+    SummaryPipe,
    
   ],
   imports: [
