@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from rest_framework import viewsets, routers
 from django.contrib.auth.models import User
@@ -7,6 +8,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from django.db.models import Q
+from rest_framework.decorators import api_view
 
 # Create your views here.
 
@@ -33,8 +35,14 @@ class RecipeViewset(viewsets.ModelViewSet):
         return queryset
 
     #add more information before creating a user
-    # def perform_create(self, serializer):
-    #     serializer.save(posted_by = self.request.user)
+    def perform_create(self, serializer):
+        # data=json.dumps(serializer.data)
+        print(self.request.data['posted_by'])
+        user = User.objects.filter(pk=self.request.data['posted_by'])[0]
+        print(user)
+        return Response('user created')
+        # serializer.save(posted_by = user)
+        
 
     # def destroy(self, request, *args, **kwargs):
     #     recipe = self.get_object()
@@ -84,3 +92,12 @@ class RatingViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         if self.request.user.is_authenticated:
             serializer.save(user = self.request.user)
+# @api_view(['POST'])
+# def recipe_func(request):
+#     data=json.loads(request.body)
+#     user=User.objects.get(pk=data['posted_by'])
+#     print(user)
+#     recipe = Recipe(recipe_name=data['recipe_name'], description=data['description'], dish_type=data['dish_type'], prep_time_mins=data['prep_time_mins'], no_of_servings=data['no_of_servings'], cooking_time_mins=data['cooking_time_mins'], image=data['image'], ingredients=data['ingredients'], instructions=data['instructions'], country=data['country'], posted_by=user)
+#     recipe.save()
+#     print(data)
+#     return Response('printed')

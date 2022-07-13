@@ -1,3 +1,4 @@
+from . import views
 from django.urls import path
 from rest_framework import routers
 from recipe_api.serializers import RatingSerializer
@@ -13,7 +14,7 @@ routes.register('bookmarks', BookmarkViewSet)
 routes.register('ratings', RatingViewSet)
 
 urlpatterns = [
-    # path()
+    # path('recipe-mod/', views.recipe_func)
 ]
 
 urlpatterns += routes.urls
