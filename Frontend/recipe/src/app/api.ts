@@ -10,7 +10,7 @@ export interface Recipe {
   ingredients: string;
   instructions: string;
   date_created: Date;
-  posted_by: User;
+  posted_by: number;
   ratings: number;
   country: string;
   bookmarked: boolean;

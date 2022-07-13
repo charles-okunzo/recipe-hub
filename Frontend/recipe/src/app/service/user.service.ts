@@ -47,6 +47,9 @@ export class UserService {
       .post<logInResponse>(`${this.apiRoot}registration/`, userData)
       .pipe(
         tap((response) => {
+          if (localStorage.getItem('refresh_token')) {
+            localStorage.clear();
+          }
           this.setSession(response.access_token);
           localStorage.setItem('refresh_token', response.refresh_token);
         }),
@@ -54,22 +57,14 @@ export class UserService {
       );
   }
 
-  //disregard this user login method
-  // loginUser(userData:any): Observable<any>{
-  //   return this.http.post(`${this.BASEURL}auth/obtain-auth-token/`, userData);
-  // }
-
-  // DJANGO_SERVER: string = "http://127.0.0.1:8000";
-
-  // public upload(formData: any) {
-  //   return this.http.post<any>(`${this.DJANGO_SERVER}/upload/`, formData);
-  // }
-
   userLogin(userPayLoad: object) {
     return this.http
       .post<logInResponse>(`${this.apiRoot}login/`, userPayLoad)
       .pipe(
         tap((response) => {
+          if (localStorage.getItem('refresh_token')) {
+            localStorage.clear();
+          }
           this.setSession(response.access_token);
           localStorage.setItem('refresh_token', response.refresh_token);
         }),
