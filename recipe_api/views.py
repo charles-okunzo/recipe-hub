@@ -35,13 +35,13 @@ class RecipeViewset(viewsets.ModelViewSet):
         return queryset
 
     #add more information before creating a user
-    def perform_create(self, serializer):
-        # data=json.dumps(serializer.data)
-        print(self.request.data['posted_by'])
-        user = User.objects.filter(pk=self.request.data['posted_by'])[0]
-        print(user)
-        return Response('user created')
-        # serializer.save(posted_by = user)
+    # def perform_create(self, serializer):
+    #     # data=json.dumps(serializer.data)
+    #     print(self.request.data['posted_by'])
+    #     user = User.objects.filter(pk=self.request.data['posted_by'])[0]
+    #     print(user)
+    #     return Response('user created')
+    #     # serializer.save(posted_by = user)
         
 
     # def destroy(self, request, *args, **kwargs):
@@ -64,34 +64,37 @@ class ProfileViewset(viewsets.ModelViewSet):
     # permission_classes = (IsAuthenticatedOrReadOnly,)---> Default classes enabled in settings.py
     # authentication_classes = (TokenAuthentication,)
 
-    def perform_update(self, serializer):
-        if self.request.user.is_authenticated:
-            serializer.save(posted_by = self.request.user)
+    # def perform_update(self, serializer):
+    #     if self.request.user.is_authenticated:
+    #         serializer.save(posted_by = self.request.user)
 
 class BookmarkViewSet(viewsets.ModelViewSet):
     queryset = Bookmark.objects.all()
     serializer_class = BookmarkSerializer
 
-    def get_queryset(self):
-        queryset = Bookmark.objects.all()
+    # def get_queryset(self):
+    #     queryset = Bookmark.objects.all()
 
-        search = self.request.GET.get('filter_query')
-        if search:
-            return queryset.filter(user__username = search)
-        return queryset
+    #     search = self.request.GET.get('filter_query')
+    #     if search:
+    #         return queryset.filter(user__username = search)
+    #     return queryset
 
-    def perform_update(self, serializer):
-        if self.request.user.is_authenticated:
-            serializer.save(user = self.request.user)
+    # def perform_update(self, serializer):
+    #     if self.request.user.is_authenticated:
+    #         serializer.save(user = self.request.user)
 
 
 class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
 
-    def perform_update(self, serializer):
-        if self.request.user.is_authenticated:
-            serializer.save(user = self.request.user)
+    # def perform_update(self, serializer):
+    #     if self.request.user.is_authenticated:
+    #         serializer.save(user = self.request.user)
+
+
+
 # @api_view(['POST'])
 # def recipe_func(request):
 #     data=json.loads(request.body)

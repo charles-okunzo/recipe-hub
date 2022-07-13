@@ -15,6 +15,9 @@ DISH_TYPE_CHOICES = {
     ('Drink', 'Drink')
 }
 
+def upload_path(instance, filename):
+    return "/".join(['images', str([instance.title]), filename])
+
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=100)
     description = models.TextField(null=True)
@@ -22,7 +25,8 @@ class Recipe(models.Model):
     prep_time_mins = models.PositiveIntegerField()
     no_of_servings = models.PositiveIntegerField()
     cooking_time_mins = models.PositiveIntegerField()
-    image = CloudinaryField('recipe_images')
+    # image = CloudinaryField('recipe_images')
+    image = models.ImageField(upload_to=upload_path, null=True, blank=True)
     ingredients = models.TextField()
     instructions = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)

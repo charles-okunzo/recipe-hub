@@ -18,6 +18,7 @@ dj-database-url = "*"
 django-allauth = "*"
 djangorestframework-jwt = "*"
 dj-rest-auth = "*"
+pillow = "*"
 
 [dev-packages]
 

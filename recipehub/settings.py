@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
-import cloudinary, cloudinary.api, cloudinary.uploader, django_heroku, dj_database_url
+import cloudinary, cloudinary.api, cloudinary.uploader, django_heroku, dj_database_url, os
 from datetime import timedelta
 
 
@@ -202,6 +202,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+#Media files settings
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -210,5 +215,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200'
 ]
+
 
 django_heroku.settings(locals())
