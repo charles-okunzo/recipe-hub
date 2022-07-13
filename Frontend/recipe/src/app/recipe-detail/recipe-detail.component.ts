@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Recipe } from '../models/recipe';
 
 @Component({
@@ -30,9 +31,11 @@ export class RecipeDetailComponent implements OnInit {
     {name:'Serve. Serve immediately, garnished with the remaining crispy chickpeas, and enjoy!'}
   ]
 
-  constructor() { }
+  constructor(private NgxLoader:NgxUiLoaderService) { }
 
   ngOnInit(): void {
+    this.NgxLoader.start()
+    this.NgxLoader.stop()
   }
 
 }

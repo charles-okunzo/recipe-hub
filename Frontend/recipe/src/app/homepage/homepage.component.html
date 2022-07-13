@@ -41,25 +41,25 @@
         <div
           class="box col-lg-3 col-md-3 text-center border-end border-start"
         >
-          <i class="fa fa-ice-cream p-3 col-sm-12"></i>
+        <span class="iconify fab" data-icon="healthicons:hot-meal-outline"></span>
           <p>Main dishes</p>
         </div>
         <div
           class="box col-lg-3 col-md-3 col-sm-12 text-center border-end"
         >
-          <i class="fa fa-ice-cream p-3"></i>
+        <span class="iconify fab" data-icon="tabler:soup"></span>
           <p>Soup</p>
         </div>
         <div
           class="box col-lg-3 col-md-3 col-sm-12 text-center border-end"
         >
-          <i class="fa fa-ice-cream p-3"></i>
+        <span class="iconify fab" data-icon="ep:cold-drink"></span>
           <p>Beverages</p>
         </div>
         <div
           class="box col-lg-3 col-md-3 col-sm-12 text-center border-end"
         >
-          <i class="fa fa-ice-cream p-3"></i>
+          <span class="iconify fab" data-icon="ep:dessert"></span>
           <p>Desserts</p>
         </div>
       </div>
@@ -70,16 +70,16 @@
     <div class="featured row">
       <div class="col-md-6">
         <img
-          class="img-fluid rounded-circle"
-          style="height: 30rem; width: 100%"
-          src="https://res.cloudinary.com/daiff3l9v/{{ featured.image }}"
+          class="img-fluid"
+          style="height: 30rem; width: 30rem; object-fit: cover;"
+          src="{{featured.image}}"
           alt=""
         />
       </div>
       <div class="col-md-6">
         <div class="featured-content">
           <div class="featured-text">
-            <h4>Featured Recipe</h4>
+            <h4 style="color: #D52B32;">Featured Recipe</h4>
             <div class="inner-div d-flex align-items-center">
               <h2>{{ featured.recipe_name }}</h2>
               <div class="circle">
@@ -131,7 +131,7 @@
   </section>
   <section class="about-us mt-5">
     <div class="container">
-      <h2 class="pb-2" style="color: #d52b32">About Us</h2>
+      <h2 class="pb-2" style="color: #D52B32">About Us</h2>
       <div class="row">
         <div class="col-md-12 col-lg-6 col-sm-12">
           <h3 class="pb-3" style="font-size: 2.3rem; font-weight: bold">
@@ -177,7 +177,7 @@
         See hundreds of Tasty food with <br />photos and tips on how to make
         them
       </p>
-      <p style="color: #d52b32">
+      <p style="color: #d52b32;cursor: pointer;" routerLink="/recipes">
         View all popular recipe <i class="fa fa-arrow-right"></i>
       </p>
     </div>
@@ -190,8 +190,8 @@
         <div class="image">
           <img
             class="img-fluid rounded"
-            style="width: 100%"
-            src="https://res.cloudinary.com/daiff3l9v/{{ recipe.image }}"
+            style="width: 100%; object-fit: cover;"
+            src="{{recipe.image}}"
             alt=""
           />
           <div class="circle">
@@ -222,187 +222,8 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
-        <div class="image">
-          <img
-            class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
-            alt=""
-          />
-          <div class="circle">
-            <div class="inner-circle">
-              <div class="mydiv">
-                <h2>5</h2>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="popular-card-content">
-          <h4>Vegetable Kebab</h4>
-          <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
-          </p>
-        </div>
-        <div class="popular-user-content d-flex border-top border-bottom pt-2">
-          <img
-            class="img-fluid rounded-circle"
-            style="width: 45px; height: 45px; margin-right: 2rem"
-            src="../../assets/images/profile.jpg"
-            alt=""
-          />
-          <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
-            <p>Star Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
-        <div class="image">
-          <img
-            class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
-            alt=""
-          />
-          <div class="circle">
-            <div class="inner-circle">
-              <div class="mydiv">
-                <h2>5</h2>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="popular-card-content">
-          <h4>Vegetable Kebab</h4>
-          <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
-          </p>
-        </div>
-        <div class="popular-user-content d-flex border-top border-bottom pt-2">
-          <img
-            class="img-fluid rounded-circle"
-            style="width: 45px; height: 45px; margin-right: 2rem"
-            src="../../assets/images/profile.jpg"
-            alt=""
-          />
-          <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
-            <p>Star Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
-        <div class="image">
-          <img
-            class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
-            alt=""
-          />
-          <div class="circle">
-            <div class="inner-circle">
-              <div class="mydiv">
-                <h2>5</h2>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="popular-card-content">
-          <h4>Vegetable Kebab</h4>
-          <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
-          </p>
-        </div>
-        <div class="popular-user-content d-flex border-top border-bottom pt-2">
-          <img
-            class="img-fluid rounded-circle"
-            style="width: 45px; height: 45px; margin-right: 2rem"
-            src="../../assets/images/profile.jpg"
-            alt=""
-          />
-          <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
-            <p>Star Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
-        <div class="image">
-          <img
-            class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
-            alt=""
-          />
-          <div class="circle">
-            <div class="inner-circle">
-              <div class="mydiv">
-                <h2>5</h2>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="popular-card-content">
-          <h4>Vegetable Kebab</h4>
-          <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
-          </p>
-        </div>
-        <div class="popular-user-content d-flex border-top border-bottom pt-2">
-          <img
-            class="img-fluid rounded-circle"
-            style="width: 45px; height: 45px; margin-right: 2rem"
-            src="../../assets/images/profile.jpg"
-            alt=""
-          />
-          <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
-            <p>Star Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 recipe-box mb-3">
-        <div class="image">
-          <img
-            class="img-fluid rounded"
-            src="../../assets/images/popular.jpg"
-            alt=""
-          />
-          <div class="circle">
-            <div class="inner-circle">
-              <div class="mydiv">
-                <h2>5</h2>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="popular-card-content">
-          <h4>Vegetable Kebab</h4>
-          <p>
-            Lorem ipsum dolor sit amet consecetur asipiscing elit, sed do
-            elusmod tempor
-          </p>
-        </div>
-        <div class="popular-user-content d-flex border-top border-bottom pt-2">
-          <img
-            class="img-fluid rounded-circle"
-            style="width: 45px; height: 45px; margin-right: 2rem"
-            src="../../assets/images/profile.jpg"
-            alt=""
-          />
-          <div class="popular-user-name">
-            <h5>Nicole Reyes</h5>
-            <p>Star Chef</p>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
   <app-footer></app-footer>
 </section>
+<ngx-ui-loader fgsColor="#f7373d" pbColor="#f7373d"></ngx-ui-loader>

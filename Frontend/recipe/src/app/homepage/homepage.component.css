@@ -3,15 +3,17 @@
 }
 .homepage {
   background: radial-gradient(ellipse, transparent -60%, rgba(0, 0, 0, 0.8)),
-    url(../../assets/images/banner.jpg) no-repeat;
+    url(../../assets/images/pexels-photo-2233729.jpeg) no-repeat;
   min-height: 90vh;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .fa {
   font-size: 1.7rem;
 }
-.box i {
-  color: #fa4269;
+.box .fab {
+  color: #D52B32;
 }
 .text h1 {
   font-size: 4rem;
@@ -40,7 +42,7 @@
 .inner-circle {
   width: 3.7rem;
   height: 3.7rem;
-  background-color: #fa4269;
+  background-color: #D52B32;
   border-radius: 50%;
   position: relative;
   border: 2px solid #fff;
@@ -116,7 +118,7 @@
   padding: 1rem;
 }
 .featured-content .featured-text h3 {
-  color: #fa4269;
+  color: #D52B32;
   margin-bottom: 1rem;
   padding-top: 1rem;
 }
@@ -137,4 +139,8 @@
 
 .border-end{
   border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.fab{
+  font-size: 10vh;
 }

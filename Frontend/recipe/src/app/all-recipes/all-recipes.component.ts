@@ -4,28 +4,28 @@ import { Recipe } from '../api';
 import { RecipeApiService } from '../service/recipe-api.service';
 
 @Component({
-  selector: 'homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css'],
+  selector: 'app-all-recipes',
+  templateUrl: './all-recipes.component.html',
+  styleUrls: ['./all-recipes.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class AllRecipesComponent implements OnInit {
+
   recipes!: Recipe[];
   featured!: Recipe;
 
-  constructor(private recipeApiService: RecipeApiService,private NgxLoader:NgxUiLoaderService ) {}
+  constructor(private recipeApiService: RecipeApiService, private NgxLoader:NgxUiLoaderService) {}
 
   ngOnInit(): void {
-    this.NgxLoader.start()
-    this.NgxLoader.stop()
+    this.NgxLoader.start();
     this.recipeApiService.getRecipes().subscribe({
       next: (res) => {
-        // this.NgxLoader.start()
         this.recipes = res;
         this.featured = res[Math.floor(Math.random() * res.length)];
         console.log(this.featured);
       },
       error: (err) => console.log(err),
     });
-    // this.NgxLoader.stop()
+    this.NgxLoader.stop()
   }
+
 }

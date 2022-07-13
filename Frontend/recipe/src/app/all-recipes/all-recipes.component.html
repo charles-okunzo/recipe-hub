@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row popular-recipes mb-3">
+        <div
+          routerLink="/recipe-detail"
+          *ngFor="let recipe of recipes.reverse()"
+          class="col-md-6 col-sm-12 col-lg-4 recipe-box my-5"
+        >
+          <div class="image">
+            <img
+              class="img-fluid rounded"
+              style="width: 100%"
+              src="{{recipe.image}}"
+              alt=""
+            />
+            <div class="circle">
+              <div class="inner-circle">
+                <div class="mydiv">
+                  <h2>5</h2>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popular-card-content">
+            <h4 routerLink="/recipe-detail">{{ recipe.recipe_name }}</h4>
+            <p>
+              {{ recipe.description | summary }}
+            </p>
+          </div>
+          <div class="popular-user-content d-flex border-top border-bottom pt-2">
+            <img
+              class="img-fluid rounded-circle"
+              style="width: 45px; height: 45px; margin-right: 2rem"
+              src="../../assets/images/profile.jpg"
+              alt=""
+            />
+            <div class="popular-user-name">
+              <h5></h5>
+              <p>Star Chef</p>
+            </div>
+          </div>
+        </div>
+</div>
+
+<app-footer></app-footer>
+<ngx-ui-loader fgsColor="#f7373d" pbColor="#f7373d"></ngx-ui-loader>

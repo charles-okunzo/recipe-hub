@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -26,20 +27,24 @@ export class ProfileComponent implements OnInit {
      
     
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private NgxLoader:NgxUiLoaderService) { }
 
   ngOnInit() {
+    this.NgxLoader.start()
+    this.NgxLoader.stop()
     this.form = this.formBuilder.group({
       profile: ['']
     });
 
     this.userService.getCurrentUser().subscribe({
       next: (userdata) =>{
+        // this.NgxLoader.start()
         this.currentUser=userdata
         this.userService.getUserProfile(userdata.profile).subscribe(
           profile =>{
             this.userProfile=profile
             console.log(profile)
+            // this.NgxLoader.stop()
           }
         )
       }

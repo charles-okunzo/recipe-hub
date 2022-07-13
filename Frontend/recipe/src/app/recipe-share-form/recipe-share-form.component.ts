@@ -77,6 +77,8 @@ export class RecipeShareFormComponent implements OnInit {
 
     onImgChange(event:any){
       this.image = event.target.files[0];
+      console.log(this.image.name);
+      
     }
 
     onPostChange(event:any){

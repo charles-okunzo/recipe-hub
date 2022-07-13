@@ -3,6 +3,7 @@ import {FormGroup,FormBuilder, FormControl, Validators} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-signup',
@@ -15,9 +16,11 @@ export class SignupComponent implements OnInit {
 
   username!:FormControl
 
-  constructor(private formBuilder : FormBuilder, private userService : UserService, private router:Router) { }
+  constructor(private formBuilder : FormBuilder, private userService : UserService, private router:Router, private NgxLoader:NgxUiLoaderService) { }
 
   ngOnInit(): void {
+    this.NgxLoader.start()
+    this.NgxLoader.stop()
     this.signupForm = this.formBuilder.group({
       username:[''],
       email:[''],
@@ -37,6 +40,7 @@ export class SignupComponent implements OnInit {
    
 
     registerUser(){
+      this.NgxLoader.start()
       this.userService.registerUser(this.signupForm.value).subscribe({
         next:resp => {
           alert(`User has been created successfuly!`)
@@ -52,8 +56,9 @@ export class SignupComponent implements OnInit {
         }
       })
       console.log(this.signupForm.value)
+      this.NgxLoader.stop()
     }
 
-
+    
   }
 
