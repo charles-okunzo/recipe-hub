@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 
 
 
-interface Country {
+interface Recipe{
   recipe_name: string;
-  flag: string;
-  area: number;
+  ingredients: string;
+  dish_type: string;
   population: number;
 }
 @Component({
@@ -19,24 +19,33 @@ export class AppComponent {
   title = 'recipe';
 
   searchTerm = '';
-  countries: Country[] = [];
-  allCountries: Country[] = [];
+  recipes: Recipe[] = [];
+  allRecipes: Recipe[] = [];
   term = '';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Country[]>('https://rec1pe-api.herokuapp.com/api/recipes/')
-      .subscribe((data: Country[]) => {
-        this.countries = data;
-        this.allCountries = this.countries;
+    this.http.get<Recipe[]>('https://rec1pe-api.herokuapp.com/api/recipes/')
+      .subscribe((data: Recipe[]) => {
+        this.recipes = data;
+        this.allRecipes = this.recipes;
 
       });
   }
   search(value: string): void {
-    this.countries = this.allCountries.filter((val) =>
+    this.recipes = this.allRecipes.filter((val) =>
       val.recipe_name.toLowerCase().includes(value)
+
+
+    );
+    this.recipes = this.allRecipes.filter((vat) =>
+      vat.dish_type.toLowerCase().includes(value)
+
+
     );
   }
   
-}
+  }
+  
+

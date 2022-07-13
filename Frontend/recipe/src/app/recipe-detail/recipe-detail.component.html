@@ -6,18 +6,18 @@
             <div class="center mt-5">
                 <div class="row">
                     <div class="container">
-                        <h3 class="text-center">{{recipe.dish_type}}</h3>
+                        <h3 class="text-center">{{recipe.dish_type|uppercase}}</h3>
                         <div class="one mt-3">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="{{recipe.image}}" class="img-fluid" alt="">
+                                        <img src="https://res.cloudinary.com/daiff3l9v/{{recipe.image}}" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-8">
-                                    <h2>{{recipe.recipe_name}}</h2>
+                                    <h2>{{recipe.recipe_name|uppercase}}</h2>
                                     <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>
-                                    <br/>
-                                    <p>Author : {{recipe.posted_by.username}}</p>
+                                    <h6 class="text-center">{{recipe.country|uppercase}}</h6>
+                                    <p>Author : {{recipe.posted_by|titlecase}}</p>
                                     <p>Prep time : {{recipe.prep_time_mins}} mins</p>
                                     <p>Cook time : {{recipe.cooking_time_mins}} mins</p>
                                     <p>Serves : {{recipe.no_of_servings}}</p>
@@ -33,8 +33,7 @@
                             <div class="container">
                             <div class="row">
                                 <h3>DESCRIPTION</h3>
-                                <p>This simple green salad is loaded up with zesty roasted chickpeas, cucumber,
-                                    avocado, feta cheese, fresh herbs, and a tangy lemon vinaigrette.</p>
+                                <p>{{recipe.description}}</p>
                             </div>
                         </div>
                         </div>
@@ -44,7 +43,7 @@
                             <h3>INGREDIENTS</h3>
                             <ul>
                                 <li>
-                                    <p><span class="dot">. </span>{{recipe.ingredients}}</p>
+                                    <p>{{recipe.ingredients}}</p>
                                 </li>
                             </ul>
                             </div>
@@ -56,7 +55,7 @@
                                 <h3>INSTRUCTIONS</h3>
                                 <ul>
                                     <li>
-                                        <p> <span class="dot">. </span>{{recipe.instructions}}</p>
+                                        <p>{{recipe.instructions}}</p>
                                     </li>
                                 </ul>
                             </div>

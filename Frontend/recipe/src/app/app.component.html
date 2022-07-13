@@ -1,29 +1,15 @@
 
-<form class="wrap">
+<!-- <form class="wrap">
   <div class="search">
-    <h3>Search country by name filter : </h3>
+    <h3>Search by name filter : </h3>
     <input class="searchTerm" type="text" name="searchTerm" 
-      placeholder="Filter by country name"
-      [(ngModel)]="searchTerm" (input)="search(searchTerm)" />
+      placeholder="Filter by name"
+      [(ngModel)]="searchTerm" (input)="search(searchTerm)"/>
   </div>
 </form>
+<div class="card"*ngFor="let recipe of recipes | filter: searchTerm; index as i" style="width: 30rem;">
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Country</th>
-      <th scope="col">Area</th>
-      <th scope="col">Population</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let country of countries | filter: searchTerm; index as i">
-      <td scope="row">{{ i + 1 }}</td>
-      <td>
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-        {{ country.recipe_name }}
-      </td>
-  </tbody>
-</table>
+    <{{ i + 1 }} -->
+    <!-- <p class="text" style="display:onSelect;">{{ recipe.recipe_name}},{{recipe.dish_type}}</p>
+</div> -->
 <router-outlet></router-outlet>
