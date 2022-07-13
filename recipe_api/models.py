@@ -16,7 +16,7 @@ DISH_TYPE_CHOICES = {
 }
 
 def upload_path(instance, filename):
-    return "/".join(['images', str([instance.title]), filename])
+    return "/".join(['images', str(instance.recipe_name), filename])
 
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=100)
@@ -35,6 +35,9 @@ class Recipe(models.Model):
     # posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_owner', null=True, blank=True)
 
 
+
+    class Meta:
+        ordering = ['-date_created']
 
     # @property
     # def average_rating(self):
@@ -59,10 +62,12 @@ class Rating(models.Model):
 
 
 
-
+def uploaded_path(instance, filename):
+    return "/".join(['images', str(instance.user.id), filename])
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_img = CloudinaryField('profile_imgs', default = 'v1657613809/avatar_zzuoot.png')
+    # profile_img = CloudinaryField('profile_imgs', default = 'v1657613809/avatar_zzuoot.png')
+    profile_img = models.ImageField(upload_to=uploaded_path, null=True, blank=True, default='avatar_zzuoot.png')
     bio = models.TextField(blank=True, null=True)
     city = models.CharField(max_length=100, blank=True)
     country = models.CharField(max_length=100, blank=True)

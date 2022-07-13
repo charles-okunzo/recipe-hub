@@ -1,4 +1,5 @@
 import json
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import viewsets, routers
 from django.contrib.auth.models import User
@@ -9,6 +10,8 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from django.db.models import Q
 from rest_framework.decorators import api_view
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+
 
 # Create your views here.
 
@@ -24,6 +27,38 @@ class RecipeViewset(viewsets.ModelViewSet):
     serializer_class = RecipeSerializer
     # permission_classes = (IsAuthenticatedOrReadOnly,)---> Default classes enabled in settings.py
     # authentication_classes = (TokenAuthentication,)
+
+    def post(self,request, *args, **kwargs):
+        recipe_name = request.data['recipe_name']
+        description = request.data['description']
+        dish_type = request.data['dish_type']
+        # user = request.user
+        prep_time_mins = request.data['prep_time_mins']
+        no_of_servings = request.data['no_of_servings']
+        image = request.data['image']
+        ingredients = request.data['ingredients']
+        instructions = request.data['instructions']
+        date_created = request.data['date_created']
+        posted_by = request.data['posted_by']
+        country = request.data['country']
+        cooking_time_mins = request.data['cooking_time_mins']
+        Recipe.objects.create(
+            recipe_name=recipe_name,
+            description=description,
+            dish_type=dish_type,
+            prep_time_mins=prep_time_mins,
+            no_of_servings=no_of_servings,
+            cooking_time_mins=cooking_time_mins,
+            image=image,
+            ingredients=ingredients,
+            instructions=instructions,
+            date_created=date_created,
+            country=country,
+            posted_by=posted_by
+             )
+        return HttpResponse({
+            'message': 'success',
+        }, status=200)
 
     # if a query request is there returnthe queried set otherwise return everything
     def get_queryset(self):
@@ -61,6 +96,11 @@ class RecipeViewset(viewsets.ModelViewSet):
 class ProfileViewset(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    parser_classes = (
+        MultiPartParser,
+        JSONParser,
+        FormParser
+    )
     # permission_classes = (IsAuthenticatedOrReadOnly,)---> Default classes enabled in settings.py
     # authentication_classes = (TokenAuthentication,)
 
