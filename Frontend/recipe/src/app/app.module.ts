@@ -41,7 +41,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
     // RouterModule,  
     
   ],
