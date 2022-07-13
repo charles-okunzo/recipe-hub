@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader'
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private NgxLoader:NgxUiLoaderService) { }
 
   ngOnInit(): void {
+    this.NgxLoader.start();
+    this.NgxLoader.stop()
   }
 
 }

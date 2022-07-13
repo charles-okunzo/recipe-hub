@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
+import { NgxUiLoaderService }from 'ngx-ui-loader'
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { UserService } from '../service/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private userService:UserService, private router:Router) { }
+  constructor(private fb:FormBuilder, private userService:UserService, private router:Router, private NgxLoader:NgxUiLoaderService) { }
 
   loginForm!:FormGroup
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   
   //method called when the user submits the login button
   logInUser(){
+    this.NgxLoader.start()
     this.userService.userLogin(this.loginForm.value).subscribe({
       next:success => this.router.navigate(['home']),
       error:err=>{
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
         console.log('error', err)
       }
     });
+    this.NgxLoader.stop()
 
     
   }

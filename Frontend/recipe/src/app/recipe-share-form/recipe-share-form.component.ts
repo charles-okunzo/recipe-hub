@@ -25,7 +25,7 @@ export class RecipeShareFormComponent implements OnInit {
     ingredients : new FormControl(''),
     instructions: new FormControl(''),
     date_created : new FormControl(''),
-    posted_by : new FormControl(),
+    posted_by : new FormControl(''),
     country : new FormControl('')
 
   })
@@ -35,10 +35,10 @@ export class RecipeShareFormComponent implements OnInit {
 
   addRecipe(){
     
-    console.log(this.recipeShareForm.value.posted_by)
+    console.log(this.recipeShareForm.value)
     this.recipeApiService.postRecipes(this.recipeShareForm.value).subscribe(
     {next:data =>{
-      this.recipes.push(data)
+      // this.recipes.push(data)
       alert('Submitted successfully')
     },error: err=>{
       console.log('error', err)
@@ -50,8 +50,7 @@ export class RecipeShareFormComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe(
       user =>{
-        this.recipeShareForm.value.posted_by=user.id
-        console.log(this.recipeShareForm.value)
+        this.currentUser=user.username
       }
     )
   }
