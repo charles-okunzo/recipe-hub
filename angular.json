@@ -103,7 +103,7 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/recipe",
-            "netlifyToken": "VJ3gKTmbKIJJLFToUbVuemiqLgJ0jPPueuoY_xtR7VE",
+            "netlifyToken": "TnCSpybwHXWEkGQ4cUfWfZHUl7J8ppszy5jceMlBLa4",
             "siteId": "1dcfe5f8-0d47-4466-b052-3139f66930a9"
           }
         }
