@@ -101,11 +101,11 @@ Find all the versions used in the pipfile.lock :
 
 ## Authors
 
-- **Bonface221** - [boninsta](https://github.com/bonface221/)
-- **Charles Okunzo** - [boninsta](https://github.com/bonface221/)
-- **Diana** - [boninsta](https://github.com/bonface221/)
-- **Matilda** - [boninsta](https://github.com/bonface221/)
-- **Caroline** - [boninsta](https://github.com/bonface221/)
+- **Bonface221** - [Bonface Kanyenje](https://github.com/bonface221/)
+- **Charles Okunzo** - [Charles Okunzo](https://github.com/charles-okunzo/)
+- **Diana Kariuki** - [Diana Kariuki](https://github.com/bonface221/)
+- **Matilda Bosibori** - [boninsta](https://github.com/bonface221/)
+- **Caroline Mwendwa** - [boninsta](https://github.com/bonface221/)
 
 ## License
 
