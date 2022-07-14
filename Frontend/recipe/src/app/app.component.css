@@ -16,7 +16,7 @@ table {
     }
       
     tr:nth-child(even) {
-        background-color: #dddddd;
+        background-color: white;
     }
 
  
@@ -28,19 +28,19 @@ table {
   
   .searchTerm {
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid #D52B32;
     padding: 5px;
-    height: 20px;
+    height: 30px;
     border-radius: 5px;
     outline: none;
-    color: #9DBFAF;
+    color: black;
   }
   
   .searchTerm:focus {
-    color: #00B4CC;
+    color: #D52B32;
   }
   p{
-      color: #383c52;
+      color: white;
   }
 
 input {

@@ -1,15 +1,19 @@
 
-<!-- <form class="wrap">
+<form class="wrap">
   <div class="search">
-    <h3>Search by name filter : </h3>
     <input class="searchTerm" type="text" name="searchTerm" 
       placeholder="Filter by name"
       [(ngModel)]="searchTerm" (input)="search(searchTerm)"/>
   </div>
 </form>
-<div class="card"*ngFor="let recipe of recipes | filter: searchTerm; index as i" style="width: 30rem;">
-
-    <{{ i + 1 }} -->
-    <!-- <p class="text" style="display:onSelect;">{{ recipe.recipe_name}},{{recipe.dish_type}}</p>
-</div> -->
+<div class="card text-center"*ngFor="let recipe of recipes | filter: searchTerm; index as i" style="width: 30rem; margin-left: 300px;">
+  <div class="card-body">
+    <p class="card-text">{{ recipe.recipe_name|uppercase}}</p>
+  </div>
+ 
+</div>
+<!-- <div class="card"*ngFor="let recipe of recipes | filter: searchTerm; index as i" style="width: 30rem;">
+   {{ i + 1 }} -->
+   <!-- <p class="text">{{ recipe.recipe_name|uppercase}}</p>
+</div> --> 
 <router-outlet></router-outlet>

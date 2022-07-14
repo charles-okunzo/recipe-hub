@@ -8,7 +8,6 @@ interface Recipe{
   recipe_name: string;
   ingredients: string;
   dish_type: string;
-  population: number;
 }
 @Component({
   selector: 'app-root',
