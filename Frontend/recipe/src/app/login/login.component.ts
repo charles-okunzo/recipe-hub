@@ -29,13 +29,12 @@ export class LoginComponent implements OnInit {
 
   //method called when the user submits the login button
   logInUser() {
+    localStorage.clear();
     this.userService.userLogin(this.loginForm.value).subscribe({
-      next:()=> this.router.navigate(['home']),
-      error: error =>console.log(error)
-    })
-    
+      next: () => this.router.navigate(['home']),
+      error: (error) => console.log(error),
+    });
   }
-
 
   // this.userService.loginUser(this.loginForm.value).subscribe({
   //   next:resp =>{

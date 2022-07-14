@@ -62,9 +62,8 @@ export class UserService {
       .post<logInResponse>(`${this.apiRoot}login/`, userPayLoad)
       .pipe(
         tap((response) => {
-          if (localStorage.getItem('refresh_token')) {
-            localStorage.clear();
-          }
+          localStorage.clear();
+
           this.setSession(response.access_token);
           localStorage.setItem('refresh_token', response.refresh_token);
         }),

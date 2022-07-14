@@ -1,96 +1,126 @@
+<div class="profilebg container">
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-6 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img
+            class="rounded-circle mt-5"
+            width="150px"
+            src="https://thumbs.dreamstime.com/b/anonimos-icon-profie-social-network-over-color-background-differnt-uses-redish-icon-social-profile-148257970.jpg"
+          /><span class="font-weight-bold">
+            <div>
+              <form action="" method="post" enctype="multipart/form-data">
+                <input type="file" />
+              </form>
+            </div>
+            {{ firstName || lastName }}</span
+          ><span class="text-black-50">{{ email }}</span>
+          <span class="">{{ City || Country }} </span>
+          <span class=""
+            ><p>{{ bio }}</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-6 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right"><strong>PROFILE</strong></h4>
+          </div>
 
-<div class ="profilebg container">
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-6 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" 
-                    src="https://thumbs.dreamstime.com/b/anonimos-icon-profie-social-network-over-color-background-differnt-uses-redish-icon-social-profile-148257970.jpg"><span class="font-weight-bold">
-                      <div>
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <input type="file">
-                           
-                        </form>
-                        
-                    </div>
-                    {{firstName||lastName}}</span><span class="text-black-50">{{email}}</span>
-                    <span class="">{{City||Country}} </span>
-                    <span class=""><p>{{bio}}</p> </span></div>
-            </div>
-            <div class="col-md-6 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right"><strong>PROFILE</strong></h4>
-                    </div>
-                     
-    <form novalidate>
-        <div class="row mt-2"> 
-        <!-- <fieldset> -->
-            <div class="col-md-6">
-          <div class= "form-group">
-            <label>FirstName</label>
-            <input type="text" 
-                   class="form-control"
-                   name="firstName"
-                  
-                   ngModel>
-          </div>
-            </div>
-          <div class="col-md-6">
-            <div class= "form-group">
-                <label>LastName</label>
-                <input type="text"
-                       class="form-control"
-                       name="lastName"
-                       ngModel>
+          <form novalidate>
+            <div class="row mt-2">
+              <!-- <fieldset> -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>FirstName</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="firstName"
+                    ngModel
+                  />
+                </div>
               </div>
-        </div>
-        <!-- </fieldset> -->
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-12">  
-        <div class="form-group">
-            <label class="form-label">Mobile Number</label><input type="text" 
-            class="form-control" placeholder="enter phone number" value=""
-            ngModel>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>LastName</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="lastName"
+                    ngModel
+                  />
+                </div>
+              </div>
+              <!-- </fieldset> -->
             </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-label">Mobile Number</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter phone number"
+                    value=""
+                    ngModel
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    ngModel
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="City"
+                    value="City"
+                    ngModel
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Country</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Country"
+                    ngModel
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea6">Bio</label>
+                  <textarea
+                    class="form-control z-depth-1"
+                    id="exampleFormControlTextarea6"
+                    rows="3"
+                    placeholder="Write something here..."
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button" type="button">
+                Save Profile
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="col-md-12"> 
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email"
-                 class="form-control"
-                 name="email"
-    
-                 ngModel>
-                 </div>
-        </div>
-        <div class="col-md-12"> 
-        <div class="form-group">
-          <label>City</label>
-          <input type="text"
-                 class="form-control"
-                 name="City"
-                 value="City"
-                 ngModel>
-        </div>
-        </div>
-        <div class="col-md-12"> 
-        <div class="form-group">
-            <label>Country</label>
-            <input type="text"
-                   class="form-control"
-                   name="Country"
-                   ngModel>
-          </div>
-          </div>
-          <div class="col-md-12"> 
-            <div class="form-group">
-          <label for="exampleFormControlTextarea6">Bio</label>
-          <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."></textarea>
-        </div>
-    
-        </div>
-        </div>
-        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-    </form>
-     </div>
+      </div>
+    </div>
+  </div>
+</div>
